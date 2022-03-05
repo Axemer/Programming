@@ -157,19 +157,19 @@ namespace Programming.Model
         private void Season_button_Click(object sender, EventArgs e)
         {
             if (Season_comboBox.SelectedItem == null) { return; }
-            switch (Season_comboBox.SelectedItem)
+            switch (Season_comboBox.SelectedIndex)
             {
-                case Seasons.spring:
+                case 0: //Seasons.spring:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#90ee90");
                     //Season_groupBox.BackColor = System.Drawing.Color
                     break;
-                case Seasons.summer:
+                case 1:  //Seasons.summer:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#F0FFFF");
                     break;
-                case Seasons.autum:
+                case 2:  // Seasons.autum:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#FF8C00");
                     break;
-                case Seasons.winter:
+                case 3: // Seasons.winter:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#FFFAFA");
                     break;
             }
