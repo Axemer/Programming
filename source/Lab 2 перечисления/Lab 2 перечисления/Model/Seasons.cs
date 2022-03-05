@@ -2,9 +2,9 @@
 {
     public enum Seasons
     {
-        spring,  //весна
-        autum, //осень
-        summer, //лето
-        winter, //зима
+        spring,
+        summer,
+        autum,
+        winter, 
     }
 }

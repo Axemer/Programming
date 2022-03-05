@@ -61,7 +61,7 @@ namespace Programming.Model
             this.Enum_tab.Location = new System.Drawing.Point(0, 0);
             this.Enum_tab.Name = "Enum_tab";
             this.Enum_tab.SelectedIndex = 0;
-            this.Enum_tab.Size = new System.Drawing.Size(550, 450);
+            this.Enum_tab.Size = new System.Drawing.Size(550, 426);
             this.Enum_tab.TabIndex = 0;
             // 
             // tabPage1
@@ -73,7 +73,7 @@ namespace Programming.Model
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(542, 422);
+            this.tabPage1.Size = new System.Drawing.Size(542, 398);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Enums";
             // 
@@ -158,9 +158,8 @@ namespace Programming.Model
             this.ParserLabel.AutoSize = true;
             this.ParserLabel.Location = new System.Drawing.Point(9, 67);
             this.ParserLabel.Name = "ParserLabel";
-            this.ParserLabel.Size = new System.Drawing.Size(87, 15);
+            this.ParserLabel.Size = new System.Drawing.Size(0, 15);
             this.ParserLabel.TabIndex = 1;
-            this.ParserLabel.Text = "owwowowoow";
             // 
             // label4
             // 
@@ -185,6 +184,7 @@ namespace Programming.Model
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enumerations";
+            
             // 
             // label3
             // 
@@ -229,7 +229,7 @@ namespace Programming.Model
             this.EnumsListBox.Name = "EnumsListBox";
             this.EnumsListBox.Size = new System.Drawing.Size(140, 154);
             this.EnumsListBox.TabIndex = 0;
-            this.EnumsListBox.Click += new System.EventHandler(this.EnumsListBox_Click);
+            //this.EnumsListBox.Click += new System.EventHandler(this.EnumsListBox_Click);
             this.EnumsListBox.SelectedIndexChanged += new System.EventHandler(this.EnumsListBox_SelectedIndexChanged);
             // 
             // label1
@@ -252,11 +252,11 @@ namespace Programming.Model
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 450);
+            this.ClientSize = new System.Drawing.Size(550, 426);
             this.Controls.Add(this.Enum_tab);
             this.Name = "MainForm";
             this.Text = "Programm";
-            this.Load += new System.EventHandler(this.MainForm_Load_1);
+            //this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.Enum_tab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.Season_groupBox.ResumeLayout(false);

@@ -16,75 +16,8 @@ namespace Programming.Model
         {
             InitializeComponent();
         }
-
-        private void MainForm_Load(object sender, EventArgs args)
-        {
-
-        }
         
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Array EnumValue;
-            ValuesListBox.Items.Clear();
-            switch (EnumsListBox.SelectedItem.ToString())
-            {
-                case "Color":
-                    EnumValue = Enum.GetValues(typeof(Color));
-                    foreach (Color value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-                case "Education type":
-                    EnumValue = Enum.GetValues(typeof(Education_type));
-                    foreach (Education_type value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-                case "Genre":
-                    EnumValue = Enum.GetValues(typeof(Genre));
-                    foreach (Genre value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-                case "Seasons":
-                    EnumValue = Enum.GetValues(typeof(Seasons));
-                    foreach (Seasons value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-                case "Smartphone Manufacture":
-                    EnumValue = Enum.GetValues(typeof(Manufacture));
-                    foreach (Manufacture value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-                case "Weekday":
-                    EnumValue = Enum.GetValues(typeof(Weekday));
-                    foreach (Weekday value in EnumValue)
-                    {
-                        ValuesListBox.Items.Add(value);
-                    }
-                    break;
-            }
-
-        }
-
-        private void MainForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ValuesListBox_Click(object sender, EventArgs e)
-        {
-            IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
-        }
-
-        private void EnumsListBox_Click(object sender, EventArgs e)
         {
             Array EnumValue;
             ValuesListBox.Items.Clear();
@@ -134,6 +67,11 @@ namespace Programming.Model
                     break;
             }
 
+        }
+
+        private void ValuesListBox_Click(object sender, EventArgs e)
+        {
+            IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
         }
 
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)

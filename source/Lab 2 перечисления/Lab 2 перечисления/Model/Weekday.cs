@@ -8,6 +8,6 @@
         Thursday,
         Friday,
         Saturday,
-        Sunday
+        Sunday,
     }
 }
