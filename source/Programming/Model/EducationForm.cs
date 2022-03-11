@@ -5,19 +5,19 @@
         /// <summary>
         /// Очное
         /// </summary>
-        full_time,
+        FullTime,
         /// <summary>
         /// Заочное
         /// </summary>
-        part_time, 
+        PartTime, 
         /// <summary>
         /// Вечернее
         /// </summary>
-        evening,   
+        Evening,   
         /// <summary>
         /// Дистанционное
         /// </summary>
-        remote,
+        Remote
         
     }
 }

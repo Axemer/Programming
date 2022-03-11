@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab_2_перечисления
+namespace Programming
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace Lab_2_перечисления
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Programming.Model.MainForm());
+            Application.Run(new Programming.View.MainForm());
         }
     }
 }
