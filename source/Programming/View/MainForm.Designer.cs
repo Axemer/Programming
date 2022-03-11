@@ -61,7 +61,7 @@ namespace Programming.Model
             this.Enum_tab.Location = new System.Drawing.Point(0, 0);
             this.Enum_tab.Name = "Enum_tab";
             this.Enum_tab.SelectedIndex = 0;
-            this.Enum_tab.Size = new System.Drawing.Size(550, 426);
+            this.Enum_tab.Size = new System.Drawing.Size(544, 381);
             this.Enum_tab.TabIndex = 0;
             // 
             // tabPage1
@@ -73,7 +73,7 @@ namespace Programming.Model
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(542, 398);
+            this.tabPage1.Size = new System.Drawing.Size(536, 353);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Enums";
             // 
@@ -84,16 +84,16 @@ namespace Programming.Model
             this.Season_groupBox.Controls.Add(this.Season_comboBox);
             this.Season_groupBox.Controls.Add(this.label6);
             this.Season_groupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Season_groupBox.Location = new System.Drawing.Point(291, 276);
+            this.Season_groupBox.Location = new System.Drawing.Point(291, 237);
             this.Season_groupBox.Name = "Season_groupBox";
-            this.Season_groupBox.Size = new System.Drawing.Size(231, 100);
+            this.Season_groupBox.Size = new System.Drawing.Size(230, 100);
             this.Season_groupBox.TabIndex = 8;
             this.Season_groupBox.TabStop = false;
             this.Season_groupBox.Text = "Season Handle";
             // 
             // Season_button
             // 
-            this.Season_button.Location = new System.Drawing.Point(139, 40);
+            this.Season_button.Location = new System.Drawing.Point(133, 40);
             this.Season_button.Name = "Season_button";
             this.Season_button.Size = new System.Drawing.Size(75, 23);
             this.Season_button.TabIndex = 2;
@@ -104,14 +104,9 @@ namespace Programming.Model
             // Season_comboBox
             // 
             this.Season_comboBox.FormattingEnabled = true;
-            this.Season_comboBox.Items.AddRange(new object[] {
-            "spring",
-            "autum",
-            "summer",
-            "winter"});
             this.Season_comboBox.Location = new System.Drawing.Point(7, 41);
             this.Season_comboBox.Name = "Season_comboBox";
-            this.Season_comboBox.Size = new System.Drawing.Size(121, 23);
+            this.Season_comboBox.Size = new System.Drawing.Size(120, 23);
             this.Season_comboBox.TabIndex = 1;
             // 
             // label6
@@ -129,16 +124,16 @@ namespace Programming.Model
             this.groupBox2.Controls.Add(this.Parse_textBox);
             this.groupBox2.Controls.Add(this.ParserLabel);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(17, 276);
+            this.groupBox2.Location = new System.Drawing.Point(17, 237);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 100);
+            this.groupBox2.Size = new System.Drawing.Size(230, 100);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Weekday Parsing";
             // 
             // Parse_button
             // 
-            this.Parse_button.Location = new System.Drawing.Point(171, 41);
+            this.Parse_button.Location = new System.Drawing.Point(135, 41);
             this.Parse_button.Name = "Parse_button";
             this.Parse_button.Size = new System.Drawing.Size(75, 23);
             this.Parse_button.TabIndex = 3;
@@ -150,7 +145,7 @@ namespace Programming.Model
             // 
             this.Parse_textBox.Location = new System.Drawing.Point(9, 41);
             this.Parse_textBox.Name = "Parse_textBox";
-            this.Parse_textBox.Size = new System.Drawing.Size(140, 23);
+            this.Parse_textBox.Size = new System.Drawing.Size(120, 23);
             this.Parse_textBox.TabIndex = 2;
             // 
             // ParserLabel
@@ -180,7 +175,7 @@ namespace Programming.Model
             this.groupBox1.Controls.Add(this.IntValueBox);
             this.groupBox1.Location = new System.Drawing.Point(17, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 254);
+            this.groupBox1.Size = new System.Drawing.Size(500, 215);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enumerations";
@@ -200,7 +195,7 @@ namespace Programming.Model
             this.ValuesListBox.ItemHeight = 15;
             this.ValuesListBox.Location = new System.Drawing.Point(171, 52);
             this.ValuesListBox.Name = "ValuesListBox";
-            this.ValuesListBox.Size = new System.Drawing.Size(136, 154);
+            this.ValuesListBox.Size = new System.Drawing.Size(140, 139);
             this.ValuesListBox.TabIndex = 1;
             this.ValuesListBox.SelectedIndexChanged += new System.EventHandler(this.ValuesListBox_SelectedIndexChanged);
             // 
@@ -226,7 +221,7 @@ namespace Programming.Model
             "Weekday"});
             this.EnumsListBox.Location = new System.Drawing.Point(9, 52);
             this.EnumsListBox.Name = "EnumsListBox";
-            this.EnumsListBox.Size = new System.Drawing.Size(140, 154);
+            this.EnumsListBox.Size = new System.Drawing.Size(140, 139);
             this.EnumsListBox.TabIndex = 0;
             this.EnumsListBox.SelectedIndexChanged += new System.EventHandler(this.EnumsListBox_SelectedIndexChanged);
             // 
@@ -250,7 +245,7 @@ namespace Programming.Model
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 426);
+            this.ClientSize = new System.Drawing.Size(544, 381);
             this.Controls.Add(this.Enum_tab);
             this.Name = "MainForm";
             this.Text = "Programming Demo";

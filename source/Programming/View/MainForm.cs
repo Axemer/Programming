@@ -16,10 +16,18 @@ namespace Programming.Model
         {
             InitializeComponent();
 
-           
+            
+            var values = Enum.GetValues(typeof(Seasons));
+            foreach (var value in values)
+            {
+                Season_comboBox.Items.Add(value);
+            }
+
+
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
+            
         {
             Array EnumValue;
             ValuesListBox.Items.Clear();
@@ -91,25 +99,26 @@ namespace Programming.Model
             else
             {
                 ParserLabel.Text = "\"This day doesnt exist\"";
+
             }
         }
 
         private void Season_button_Click(object sender, EventArgs e)
         {
             if (Season_comboBox.SelectedItem == null) { return; }
-            switch (Season_comboBox.SelectedIndex)
+            switch (Season_comboBox.SelectedItem)
             {
-                case 0: //Seasons.spring:
+                case Seasons.Spring:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#90ee90");
                     //Season_groupBox.BackColor = System.Drawing.Color
                     break;
-                case 1:  //Seasons.summer:
+                case Seasons.Summer:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#F0FFFF");
                     break;
-                case 2:  // Seasons.autum:
+                case Seasons.Autumn:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#FF8C00");
                     break;
-                case 3: // Seasons.winter:
+                case Seasons.Winter:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#FFFAFA");
                     break;
             }
