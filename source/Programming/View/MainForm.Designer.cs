@@ -244,11 +244,15 @@ namespace Programming.View
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(504, 381);
             this.Controls.Add(this.Enum_tab);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(520, 420);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(520, 420);
             this.Name = "MainForm";
             this.Text = "Programming Demo";
             this.Enum_tab.ResumeLayout(false);

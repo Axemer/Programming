@@ -17,8 +17,8 @@ namespace Programming.View ////// тут кароче должно быть viev
         {
             InitializeComponent();
 
-            var values = Enum.GetValues(typeof(Seasons));
-            foreach (var value in values)
+            var seasons = Enum.GetValues(typeof(Seasons));
+            foreach (var value in seasons)
             {
                 SeasonComboBox.Items.Add(value);
             }
@@ -31,44 +31,44 @@ namespace Programming.View ////// тут кароче должно быть viev
             {
                 case "Color":
                     EnumValue = Enum.GetValues(typeof(Model.Color));
-                    foreach (Model.Color value in EnumValue)
+                    foreach (Model.Color color in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(color);
                     }
                     break;
                 case "Education form":
                     EnumValue = Enum.GetValues(typeof(EducationForm));
-                    foreach (EducationForm value in EnumValue)
+                    foreach (EducationForm form in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(form);
                     }
                     break;
                 case "Genre":
                     EnumValue = Enum.GetValues(typeof(Genre));
-                    foreach (Genre value in EnumValue)
+                    foreach (Genre genre in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(genre);
                     }
                     break;
                 case "Seasons":
                     EnumValue = Enum.GetValues(typeof(Seasons));
-                    foreach (Seasons value in EnumValue)
+                    foreach (Seasons season in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(season);
                     }
                     break;
                 case "Manufacture":
                     EnumValue = Enum.GetValues(typeof(Manufacture));
-                    foreach (Manufacture value in EnumValue)
+                    foreach (Manufacture manufacture in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(manufacture);
                     }
                     break;
                 case "Weekday":
                     EnumValue = Enum.GetValues(typeof(Weekday));
-                    foreach (Weekday value in EnumValue)
+                    foreach (Weekday weekday in EnumValue)
                     {
-                        ValuesListBox.Items.Add(value);
+                        ValuesListBox.Items.Add(weekday);
                     }
                     break;
             }
