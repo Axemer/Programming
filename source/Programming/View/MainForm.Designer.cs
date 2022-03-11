@@ -62,7 +62,7 @@ namespace Programming.View
             this.EnumTab.Location = new System.Drawing.Point(0, 0);
             this.EnumTab.Name = "EnumTab";
             this.EnumTab.SelectedIndex = 0;
-            this.EnumTab.Size = new System.Drawing.Size(504, 381);
+            this.EnumTab.Size = new System.Drawing.Size(504, 376);
             this.EnumTab.TabIndex = 0;
             // 
             // EnumsTabPage
@@ -74,16 +74,16 @@ namespace Programming.View
             this.EnumsTabPage.Location = new System.Drawing.Point(4, 24);
             this.EnumsTabPage.Name = "EnumsTabPage";
             this.EnumsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.EnumsTabPage.Size = new System.Drawing.Size(496, 353);
+            this.EnumsTabPage.Size = new System.Drawing.Size(496, 348);
             this.EnumsTabPage.TabIndex = 0;
             this.EnumsTabPage.Text = "Enums";
             // 
             // SeasonGroupBox
             // 
             this.SeasonGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.SeasonGroupBox.Controls.Add(this.SeasonLabel);
             this.SeasonGroupBox.Controls.Add(this.SeasonButton);
             this.SeasonGroupBox.Controls.Add(this.SeasonComboBox);
-            this.SeasonGroupBox.Controls.Add(this.SeasonLabel);
             this.SeasonGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SeasonGroupBox.Location = new System.Drawing.Point(253, 237);
             this.SeasonGroupBox.Name = "SeasonGroupBox";
@@ -94,7 +94,7 @@ namespace Programming.View
             // 
             // SeasonButton
             // 
-            this.SeasonButton.Location = new System.Drawing.Point(133, 40);
+            this.SeasonButton.Location = new System.Drawing.Point(139, 40);
             this.SeasonButton.Name = "SeasonButton";
             this.SeasonButton.Size = new System.Drawing.Size(75, 23);
             this.SeasonButton.TabIndex = 2;
@@ -105,7 +105,7 @@ namespace Programming.View
             // SeasonComboBox
             // 
             this.SeasonComboBox.FormattingEnabled = true;
-            this.SeasonComboBox.Location = new System.Drawing.Point(7, 41);
+            this.SeasonComboBox.Location = new System.Drawing.Point(13, 40);
             this.SeasonComboBox.Name = "SeasonComboBox";
             this.SeasonComboBox.Size = new System.Drawing.Size(120, 23);
             this.SeasonComboBox.TabIndex = 1;
@@ -113,7 +113,7 @@ namespace Programming.View
             // SeasonLabel
             // 
             this.SeasonLabel.AutoSize = true;
-            this.SeasonLabel.Location = new System.Drawing.Point(7, 23);
+            this.SeasonLabel.Location = new System.Drawing.Point(13, 22);
             this.SeasonLabel.Name = "SeasonLabel";
             this.SeasonLabel.Size = new System.Drawing.Size(89, 15);
             this.SeasonLabel.TabIndex = 0;
@@ -134,7 +134,7 @@ namespace Programming.View
             // 
             // ParseButton
             // 
-            this.ParseButton.Location = new System.Drawing.Point(135, 41);
+            this.ParseButton.Location = new System.Drawing.Point(140, 40);
             this.ParseButton.Name = "ParseButton";
             this.ParseButton.Size = new System.Drawing.Size(75, 23);
             this.ParseButton.TabIndex = 3;
@@ -144,9 +144,9 @@ namespace Programming.View
             // 
             // ParseTextBox
             // 
-            this.ParseTextBox.Location = new System.Drawing.Point(9, 41);
+            this.ParseTextBox.Location = new System.Drawing.Point(13, 40);
             this.ParseTextBox.Name = "ParseTextBox";
-            this.ParseTextBox.Size = new System.Drawing.Size(120, 23);
+            this.ParseTextBox.Size = new System.Drawing.Size(121, 23);
             this.ParseTextBox.TabIndex = 2;
             // 
             // ParserLabel
@@ -160,7 +160,7 @@ namespace Programming.View
             // ParseLabel
             // 
             this.ParseLabel.AutoSize = true;
-            this.ParseLabel.Location = new System.Drawing.Point(6, 23);
+            this.ParseLabel.Location = new System.Drawing.Point(13, 22);
             this.ParseLabel.Name = "ParseLabel";
             this.ParseLabel.Size = new System.Drawing.Size(125, 15);
             this.ParseLabel.TabIndex = 0;
@@ -246,13 +246,13 @@ namespace Programming.View
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(504, 381);
+            this.ClientSize = new System.Drawing.Size(504, 376);
             this.Controls.Add(this.EnumTab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(520, 420);
+            this.MaximumSize = new System.Drawing.Size(520, 415);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(520, 420);
+            this.MinimumSize = new System.Drawing.Size(520, 415);
             this.Name = "MainForm";
             this.Text = "Programming Demo";
             this.EnumTab.ResumeLayout(false);

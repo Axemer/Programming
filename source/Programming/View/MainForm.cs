@@ -25,48 +25,48 @@ namespace Programming.View ////// тут кароче должно быть viev
         }
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Array EnumValue;
+            Array enumValue;
             ValuesListBox.Items.Clear();
             switch (EnumsListBox.SelectedItem.ToString())
             {
                 case "Color":
-                    EnumValue = Enum.GetValues(typeof(Model.Color));
-                    foreach (Model.Color color in EnumValue)
+                    enumValue = Enum.GetValues(typeof(Model.Color));
+                    foreach (Model.Color color in enumValue)
                     {
                         ValuesListBox.Items.Add(color);
                     }
                     break;
                 case "Education form":
-                    EnumValue = Enum.GetValues(typeof(EducationForm));
-                    foreach (EducationForm form in EnumValue)
+                    enumValue = Enum.GetValues(typeof(EducationForm));
+                    foreach (EducationForm form in enumValue)
                     {
                         ValuesListBox.Items.Add(form);
                     }
                     break;
                 case "Genre":
-                    EnumValue = Enum.GetValues(typeof(Genre));
-                    foreach (Genre genre in EnumValue)
+                    enumValue = Enum.GetValues(typeof(Genre));
+                    foreach (Genre genre in enumValue)
                     {
                         ValuesListBox.Items.Add(genre);
                     }
                     break;
                 case "Seasons":
-                    EnumValue = Enum.GetValues(typeof(Seasons));
-                    foreach (Seasons season in EnumValue)
+                    enumValue = Enum.GetValues(typeof(Seasons));
+                    foreach (Seasons season in enumValue)
                     {
                         ValuesListBox.Items.Add(season);
                     }
                     break;
                 case "Manufacture":
-                    EnumValue = Enum.GetValues(typeof(Manufacture));
-                    foreach (Manufacture manufacture in EnumValue)
+                    enumValue = Enum.GetValues(typeof(Manufacture));
+                    foreach (Manufacture manufacture in enumValue)
                     {
                         ValuesListBox.Items.Add(manufacture);
                     }
                     break;
                 case "Weekday":
-                    EnumValue = Enum.GetValues(typeof(Weekday));
-                    foreach (Weekday weekday in EnumValue)
+                    enumValue = Enum.GetValues(typeof(Weekday));
+                    foreach (Weekday weekday in enumValue)
                     {
                         ValuesListBox.Items.Add(weekday);
                     }
@@ -83,7 +83,7 @@ namespace Programming.View ////// тут кароче должно быть viev
             Weekday weekday;
             if (Enum.TryParse(ParseTextBox.Text, out weekday))
             {
-                ParserLabel.Text = $"\"This is the day of the week ({ParseTextBox.Text} = {(int)weekday + 1})\"";
+                ParserLabel.Text = $"\"This is the day of the week ({ParseTextBox.Text} = {(int)weekday})\"";
             }
             else
             {
