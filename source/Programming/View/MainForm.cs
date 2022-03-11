@@ -79,11 +79,7 @@ namespace Programming.Model
 
         }
 
-        private void ValuesListBox_Click(object sender, EventArgs e)
-        {
-            IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
-        }
-
+        
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
@@ -99,7 +95,6 @@ namespace Programming.Model
             else
             {
                 ParserLabel.Text = "\"This day doesnt exist\"";
-
             }
         }
 
@@ -110,7 +105,6 @@ namespace Programming.Model
             {
                 case Seasons.Spring:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#90ee90");
-                    //Season_groupBox.BackColor = System.Drawing.Color
                     break;
                 case Seasons.Summer:
                     Season_groupBox.BackColor = ColorTranslator.FromHtml("#F0FFFF");

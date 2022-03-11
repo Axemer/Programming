@@ -29,6 +29,7 @@ namespace Programming.Model
         /// </summary>
         public void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Enum_tab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Season_groupBox = new System.Windows.Forms.GroupBox();
@@ -247,6 +248,7 @@ namespace Programming.Model
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 381);
             this.Controls.Add(this.Enum_tab);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Programming Demo";
             this.Enum_tab.ResumeLayout(false);
