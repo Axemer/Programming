@@ -16,14 +16,11 @@ namespace Programming.Model
         {
             InitializeComponent();
 
-            
             var values = Enum.GetValues(typeof(Seasons));
             foreach (var value in values)
             {
-                Season_comboBox.Items.Add(value);
+                SeasonComboBox.Items.Add(value);
             }
-
-
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,9 +37,9 @@ namespace Programming.Model
                         ValuesListBox.Items.Add(value);
                     }
                     break;
-                case "Education type":
-                    EnumValue = Enum.GetValues(typeof(Education_type));
-                    foreach (Education_type value in EnumValue)
+                case "Education form":
+                    EnumValue = Enum.GetValues(typeof(EducationForm));
+                    foreach (EducationForm value in EnumValue)
                     {
                         ValuesListBox.Items.Add(value);
                     }
@@ -79,18 +76,17 @@ namespace Programming.Model
 
         }
 
-        
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IntValueBox.Text = ValuesListBox.SelectedIndex.ToString();
+            IntValueTextBox.Text = ((int)ValuesListBox.SelectedItem).ToString();
         }
 
-        private void Parse_button_Click(object sender, EventArgs e)
+        private void ParseButton_Click(object sender, EventArgs e)
         {
-            Weekday value;
-            if (Enum.TryParse(Parse_textBox.Text, out value))
+            Weekday weekday;
+            if (Enum.TryParse(ParseTextBox.Text, out weekday))
             {
-                ParserLabel.Text = $"\"This is the day of the week ({Parse_textBox.Text} = {(int)value})\"";
+                ParserLabel.Text = $"\"This is the day of the week ({ParseTextBox.Text} = {(int)weekday + 1})\"";
             }
             else
             {
@@ -98,24 +94,26 @@ namespace Programming.Model
             }
         }
 
-        private void Season_button_Click(object sender, EventArgs e)
+        private void SeasonButton_Click(object sender, EventArgs e)
         {
-            if (Season_comboBox.SelectedItem == null) { return; }
-            switch (Season_comboBox.SelectedItem)
+            if (SeasonComboBox.SelectedItem == null) { return; }
+            switch (SeasonComboBox.SelectedItem)
             {
                 case Seasons.Spring:
-                    Season_groupBox.BackColor = ColorTranslator.FromHtml("#90ee90");
+                    SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#90ee90");
                     break;
                 case Seasons.Summer:
-                    Season_groupBox.BackColor = ColorTranslator.FromHtml("#F0FFFF");
+                    SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#F0FFFF");
                     break;
                 case Seasons.Autumn:
-                    Season_groupBox.BackColor = ColorTranslator.FromHtml("#FF8C00");
+                    SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#FF8C00");
                     break;
                 case Seasons.Winter:
-                    Season_groupBox.BackColor = ColorTranslator.FromHtml("#FFFAFA");
+                    SeasonGroupBox.BackColor = ColorTranslator.FromHtml("#FFFAFA");
                     break;
             }
         }
+
+        
     }
 }

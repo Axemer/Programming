@@ -1,6 +1,6 @@
 ﻿namespace Programming.Model
 {
-    public enum Education_type
+    public enum EducationForm
     {
         /// <summary>
         /// Очное
