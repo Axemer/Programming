@@ -2,12 +2,29 @@
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Содержит инфомарцию о времени с точностью до секунд.
+    /// </summary>
     public class Time
     {
+        /// <summary>
+        /// Количество часов.
+        /// </summary>
         private int _hours;
+
+        /// <summary>
+        /// Количество минут.
+        /// </summary>
         private int _minutes;
+
+        /// <summary>
+        /// Количество секунд.
+        /// </summary>
         private int _seconds;
 
+        /// <summary>
+        /// Возвращает и задаёт количество часов. Принимает значения от 0 до 23.
+        /// </summary>
         public int Hours
         {
             get 
@@ -17,14 +34,14 @@ namespace Programming.Model.Classes
 
             set
             {
-                if (value < 0 || value > 23)
-                {
-                    throw new ArgumentException("Ожидается часы больше 0 и меньше или равно 23.");
-                }
+                Validator.AssertValueInRange(nameof(Hours), value, 0, 23);
                 _hours = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт количество минут. Принимает значения от 0 до 59.
+        /// </summary>
         public int Minutes
         {
             get
@@ -33,14 +50,14 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
-                {
-                    throw new ArgumentException("Ожидается минуты больше 0 и меньше или равно 60.");
-                }
+                Validator.AssertValueInRange(nameof(Minutes), value, 0, 60);
                 _minutes = value;
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт количество секунд. Принимает значения от 0 до 59.
+        /// </summary>
         public int Seconds
         {
             get 
@@ -49,14 +66,17 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0 || value > 60)
-                {
-                    throw new ArgumentException("Ожидается секунды больше 0 и меньше или равно 60.");
-                }
+                Validator.AssertValueInRange(nameof(Seconds), value, 0, 60);
                 _seconds = value;
             }
         }
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Time"/>
+        /// </summary>
+        /// <param name="hours">Количество часов. Принимает значения от 0 до 23.</param>
+        /// <param name="minutes">Количество минут. Принимает значения от 0 до 59.</param>
+        /// <param name="seconds">Количество секунд. Принимает значения от 0 до 59.</param>
         public Time(int hours, int minutes, int seconds)
         {
             Hours = hours;

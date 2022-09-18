@@ -1,5 +1,8 @@
-﻿namespace Programming.Model
+﻿namespace Programming.Model.Enums
 {
+    /// <summary>
+    /// Содержит информацию о форме обучения.
+    /// </summary>
     public enum EducationForm
     {
         /// <summary>
@@ -9,15 +12,15 @@
         /// <summary>
         /// Заочное
         /// </summary>
-        PartTime, 
+        PartTime,
         /// <summary>
         /// Вечернее
         /// </summary>
-        Evening,   
+        Evening,
         /// <summary>
         /// Дистанционное
         /// </summary>
         Remote
-        
+
     }
 }

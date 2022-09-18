@@ -1,26 +1,106 @@
 ﻿using System;
-
 namespace Programming.Model.Classes
 {
-	public class Contact
-	{
-		public string FirstName { get; set; }
+    /// <summary>
+    /// Хранит контактные данные.
+    /// </summary>
+    public class Contact
+    {
+        /// <summary>
+        /// Номер контакта.
+        /// </summary>
+        private string _number;
 
-		public string LastName { get; set; }
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
+        private string _name;
 
-		public string PhoneNumber { get; set; }
+        /// <summary>
+        /// Фамилия контакта.
+        /// </summary>
+        private string _surname;
 
-		public string Email { get; set; }
-
-		public Contact(string firstName, string lastName, string phoneNumber, string email)
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>
+        /// </summary>
+        public Contact()
         {
-			FirstName = firstName;
-			LastName = lastName;
-			PhoneNumber = phoneNumber;
-			Email = email;
-        }
-		
-		public Contact() { }
-	}
-}
 
+        }
+
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Contact"/>
+        /// </summary>
+        /// <param name="name">Имя контакта. Содержит только буквы.</param>
+        /// <param name="surname">Фамилия контакта. Содержит только буквы.</param>
+        /// <param name="number">Телефонный номер. Целочисленное 11-ти значное число.</param>
+        public Contact(string name,
+            string surname,
+            string number)
+        {
+            Name = name;
+            Surname = surname;
+            Number = number;
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт имя контакта. Содержит только буквы.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                Validator.AssertStringContainsOnlyLetters(nameof(Name), value);
+                _name = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт фамилию контакта. Содержит только буквы.
+        /// </summary>
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                Validator.AssertStringContainsOnlyLetters(value, nameof(Surname));
+                _surname = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задаёт телефонный номер. Целочисленное 11-ти значное число.
+        /// </summary>
+        public string Number
+        {
+            get
+            {
+                return _number;
+            }
+            set
+            {
+                if (!long.TryParse(value, out long num))
+                {
+                    throw new ArgumentException(
+                        "the value of the Number field must consist of digits only");
+                }
+
+                if (value.Length != 11)
+                {
+                    throw new ArgumentException(
+                        "the value of the Number field must consist of 11 digits");
+                }
+
+                _number = value;
+            }
+        }
+    }
+}
