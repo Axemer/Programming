@@ -32,6 +32,7 @@ namespace Programming.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.EnumTab = new System.Windows.Forms.TabControl();
             this.EnumsTabPage = new System.Windows.Forms.TabPage();
+            this.weekdayParsingControl1 = new Programming.View.Controls.WeekdayParsingControl();
             this.seasonsControl1 = new Programming.View.Controls.SeasonsControl();
             this.enumerationsControl1 = new Programming.View.Controls.EnumerationsControl();
             this.ClassesTabPage = new System.Windows.Forms.TabPage();
@@ -39,7 +40,6 @@ namespace Programming.View
             this.movieControl1 = new Programming.View.Controls.MovieControl();
             this.RactanglesTab = new System.Windows.Forms.TabPage();
             this.rectangleCollisionControl1 = new Programming.View.Controls.RectangleCollisionControl();
-            this.weekdayParsingControl1 = new Programming.View.Controls.WeekdayParsingControl();
             this.EnumTab.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.ClassesTabPage.SuspendLayout();
@@ -70,6 +70,13 @@ namespace Programming.View
             this.EnumsTabPage.Size = new System.Drawing.Size(496, 348);
             this.EnumsTabPage.TabIndex = 0;
             this.EnumsTabPage.Text = "Enums";
+            // 
+            // weekdayParsingControl1
+            // 
+            this.weekdayParsingControl1.Location = new System.Drawing.Point(15, 231);
+            this.weekdayParsingControl1.Name = "weekdayParsingControl1";
+            this.weekdayParsingControl1.Size = new System.Drawing.Size(230, 100);
+            this.weekdayParsingControl1.TabIndex = 11;
             // 
             // seasonsControl1
             // 
@@ -127,13 +134,6 @@ namespace Programming.View
             this.rectangleCollisionControl1.Name = "rectangleCollisionControl1";
             this.rectangleCollisionControl1.Size = new System.Drawing.Size(496, 348);
             this.rectangleCollisionControl1.TabIndex = 0;
-            // 
-            // weekdayParsingControl1
-            // 
-            this.weekdayParsingControl1.Location = new System.Drawing.Point(15, 231);
-            this.weekdayParsingControl1.Name = "weekdayParsingControl1";
-            this.weekdayParsingControl1.Size = new System.Drawing.Size(230, 100);
-            this.weekdayParsingControl1.TabIndex = 11;
             // 
             // MainForm
             // 

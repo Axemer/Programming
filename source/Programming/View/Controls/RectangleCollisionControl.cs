@@ -37,6 +37,7 @@ namespace Programming.View.Controls
 
             for (int i = 0; i < 5; i++) ////////// оно тут временно
             {
+
                 Rectangle newRectangle = RectangleFactory.Randomize(
                     RactangleCanvasPanel.Width,
                     RactangleCanvasPanel.Height);
@@ -51,7 +52,7 @@ namespace Programming.View.Controls
                 _rectanglesCollision.Add(newRectangle);
 
                 RactangleListBox.Items.Add(
-                    $"{_rectangles[i].ID}: (" +
+                    $"{i+1}: (" +
                     $"X = {_rectangles[i].Center.X}; " +
                     $"Y = {_rectangles[i].Center.Y}; " +
                     "                                " +
@@ -118,10 +119,14 @@ namespace Programming.View.Controls
         /// </summary>
         private void RactangleListBoxUpdateItems()
         {
+            int i = 0;
+
             foreach (var rectangle in _rectangles)
             {
+                i++;
+
                 RactangleListBox.Items.Add(
-                    $"{rectangle.ID}: (" +
+                    $"{i}: (" +
                     $"X = {rectangle.Center.X}; " +
                     $"Y = {rectangle.Center.Y}; " +
                     "                           " +
