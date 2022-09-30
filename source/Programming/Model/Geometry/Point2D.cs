@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Model.Geometry
+﻿namespace Programming.Model.Geometry
 {
     /// <summary>
     /// Точка состоящая из координат x и y. Представляет расположение объектов в двумерной плоскости.

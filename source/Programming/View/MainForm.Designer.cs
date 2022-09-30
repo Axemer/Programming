@@ -60,7 +60,7 @@ namespace Programming.View
             // 
             // EnumsTabPage
             // 
-            this.EnumsTabPage.BackColor = System.Drawing.Color.Transparent;
+            this.EnumsTabPage.BackColor = System.Drawing.Color.White;
             this.EnumsTabPage.Controls.Add(this.weekdayParsingControl1);
             this.EnumsTabPage.Controls.Add(this.seasonsControl1);
             this.EnumsTabPage.Controls.Add(this.enumerationsControl1);
@@ -125,7 +125,7 @@ namespace Programming.View
             this.RactanglesTab.Padding = new System.Windows.Forms.Padding(3);
             this.RactanglesTab.Size = new System.Drawing.Size(496, 348);
             this.RactanglesTab.TabIndex = 2;
-            this.RactanglesTab.Text = "Ractangles";
+            this.RactanglesTab.Text = "Rеctangles";
             this.RactanglesTab.UseVisualStyleBackColor = true;
             // 
             // rectangleCollisionControl1
@@ -138,13 +138,11 @@ namespace Programming.View
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(504, 376);
             this.Controls.Add(this.EnumTab);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(520, 415);
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(2000, 2000);
             this.MinimumSize = new System.Drawing.Size(520, 415);
             this.Name = "MainForm";
             this.Text = "Programming Demo";

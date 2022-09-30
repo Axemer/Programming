@@ -120,45 +120,45 @@
             this.MovieRatingLable.AutoSize = true;
             this.MovieRatingLable.Location = new System.Drawing.Point(141, 106);
             this.MovieRatingLable.Name = "MovieRatingLable";
-            this.MovieRatingLable.Size = new System.Drawing.Size(41, 15);
+            this.MovieRatingLable.Size = new System.Drawing.Size(44, 15);
             this.MovieRatingLable.TabIndex = 5;
-            this.MovieRatingLable.Text = "Rating";
+            this.MovieRatingLable.Text = "Rating:";
             // 
             // MovieDurationLabel
             // 
             this.MovieDurationLabel.AutoSize = true;
             this.MovieDurationLabel.Location = new System.Drawing.Point(141, 194);
             this.MovieDurationLabel.Name = "MovieDurationLabel";
-            this.MovieDurationLabel.Size = new System.Drawing.Size(53, 15);
+            this.MovieDurationLabel.Size = new System.Drawing.Size(56, 15);
             this.MovieDurationLabel.TabIndex = 4;
-            this.MovieDurationLabel.Text = "Duration";
+            this.MovieDurationLabel.Text = "Duration:";
             // 
             // MovieYearLabel
             // 
             this.MovieYearLabel.AutoSize = true;
             this.MovieYearLabel.Location = new System.Drawing.Point(141, 62);
             this.MovieYearLabel.Name = "MovieYearLabel";
-            this.MovieYearLabel.Size = new System.Drawing.Size(29, 15);
+            this.MovieYearLabel.Size = new System.Drawing.Size(32, 15);
             this.MovieYearLabel.TabIndex = 3;
-            this.MovieYearLabel.Text = "Year";
+            this.MovieYearLabel.Text = "Year:";
             // 
             // MovieGenreLabel
             // 
             this.MovieGenreLabel.AutoSize = true;
             this.MovieGenreLabel.Location = new System.Drawing.Point(141, 150);
             this.MovieGenreLabel.Name = "MovieGenreLabel";
-            this.MovieGenreLabel.Size = new System.Drawing.Size(38, 15);
+            this.MovieGenreLabel.Size = new System.Drawing.Size(41, 15);
             this.MovieGenreLabel.TabIndex = 2;
-            this.MovieGenreLabel.Text = "Genre";
+            this.MovieGenreLabel.Text = "Genre:";
             // 
             // MovieTitleLabel
             // 
             this.MovieTitleLabel.AutoSize = true;
             this.MovieTitleLabel.Location = new System.Drawing.Point(141, 18);
             this.MovieTitleLabel.Name = "MovieTitleLabel";
-            this.MovieTitleLabel.Size = new System.Drawing.Size(29, 15);
+            this.MovieTitleLabel.Size = new System.Drawing.Size(32, 15);
             this.MovieTitleLabel.TabIndex = 1;
-            this.MovieTitleLabel.Text = "Title";
+            this.MovieTitleLabel.Text = "Title:";
             // 
             // MoviesListBox
             // 

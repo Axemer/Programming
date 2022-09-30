@@ -84,6 +84,9 @@ namespace Programming.Model.Classes
             Seconds = seconds;
         }
 
+        /// <summary>
+        /// Создает Создаёт экземпляр класса <see cref="Time"/>
+        /// </summary>
         public Time() { }
     }
 }

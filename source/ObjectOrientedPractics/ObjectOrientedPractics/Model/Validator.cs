@@ -49,13 +49,14 @@ namespace ObjectOrientedPractics.Model
         /// <param name="nameProperty">Имя переменной для проверки.</param>
         /// <exception cref="ArgumentException">Сообщение, что переменная должна
         /// содержать значение в определённом диапазоне.</exception>
-        public static void AssertValueInRange(string nameProperty, int value, int min, int max)
+        public static int AssertValueInRange(string nameProperty, int value, int min, int max)
         {
             if (value < min || value > max)
             {
                 throw new ArgumentException(
                     $"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
+            return value;
         }
 
         /// <summary>
@@ -68,13 +69,14 @@ namespace ObjectOrientedPractics.Model
         /// <param name="nameProperty">Имя переменной для проверки.</param>
         /// <exception cref="ArgumentException">Сообщение, что переменная должна
         /// содержать значение в определённом диапазоне.</exception>
-        public static void AssertValueInRange(string nameProperty, double value, double min, double max)
+        public static double AssertValueInRange(string nameProperty, double value, double min, double max)
         {
             if (value < min || value > max)
             {
                 throw new ArgumentException(
                     $"the value of the {nameProperty} field should be between {min} and {max} (inclusive)");
             }
+            return value;
         }
 
         /// <summary>
@@ -92,6 +94,20 @@ namespace ObjectOrientedPractics.Model
                 {
                     throw new ArgumentException(
                         $"the value of the {nameProperty} field should consist only of English letters.");
+                }
+            }
+
+            return value;
+        }
+
+        public static string AssertStringMaxLength(string value, string nameProperty, int MaxLength)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (i >= MaxLength)
+                {
+                    throw new ArgumentException(
+                        $"the length of the {nameProperty} field should be shorter than {MaxLength} characters.");
                 }
             }
 

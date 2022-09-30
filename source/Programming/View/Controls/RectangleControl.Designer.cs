@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RactanglesGroupBox = new System.Windows.Forms.GroupBox();
+            this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
             this.RactangleIDTextBox = new System.Windows.Forms.TextBox();
             this.RactangleIDLable = new System.Windows.Forms.Label();
             this.CenterLable = new System.Windows.Forms.Label();
@@ -41,29 +41,29 @@
             this.RectangleWidthTextBox = new System.Windows.Forms.TextBox();
             this.RectangleLengthTextBox = new System.Windows.Forms.TextBox();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
-            this.RactanglesGroupBox.SuspendLayout();
+            this.RectanglesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // RactanglesGroupBox
+            // RectanglesGroupBox
             // 
-            this.RactanglesGroupBox.Controls.Add(this.RactangleIDTextBox);
-            this.RactanglesGroupBox.Controls.Add(this.RactangleIDLable);
-            this.RactanglesGroupBox.Controls.Add(this.CenterLable);
-            this.RactanglesGroupBox.Controls.Add(this.RactabgleCenterTextBox);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleFindButton);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleColorLabel);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleWidthLabel);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleLengthLabel);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleColorTextBox);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleWidthTextBox);
-            this.RactanglesGroupBox.Controls.Add(this.RectangleLengthTextBox);
-            this.RactanglesGroupBox.Controls.Add(this.RectanglesListBox);
-            this.RactanglesGroupBox.Location = new System.Drawing.Point(0, 8);
-            this.RactanglesGroupBox.Name = "RactanglesGroupBox";
-            this.RactanglesGroupBox.Size = new System.Drawing.Size(230, 332);
-            this.RactanglesGroupBox.TabIndex = 1;
-            this.RactanglesGroupBox.TabStop = false;
-            this.RactanglesGroupBox.Text = "Ractangles";
+            this.RectanglesGroupBox.Controls.Add(this.RactangleIDTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RactangleIDLable);
+            this.RectanglesGroupBox.Controls.Add(this.CenterLable);
+            this.RectanglesGroupBox.Controls.Add(this.RactabgleCenterTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleFindButton);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleColorLabel);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleWidthLabel);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleLengthLabel);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleColorTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleWidthTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RectangleLengthTextBox);
+            this.RectanglesGroupBox.Controls.Add(this.RectanglesListBox);
+            this.RectanglesGroupBox.Location = new System.Drawing.Point(0, 8);
+            this.RectanglesGroupBox.Name = "RectanglesGroupBox";
+            this.RectanglesGroupBox.Size = new System.Drawing.Size(230, 332);
+            this.RectanglesGroupBox.TabIndex = 1;
+            this.RectanglesGroupBox.TabStop = false;
+            this.RectanglesGroupBox.Text = "Rectangles";
             // 
             // RactangleIDTextBox
             // 
@@ -76,20 +76,20 @@
             // RactangleIDLable
             // 
             this.RactangleIDLable.AutoSize = true;
-            this.RactangleIDLable.Location = new System.Drawing.Point(144, 194);
+            this.RactangleIDLable.Location = new System.Drawing.Point(141, 194);
             this.RactangleIDLable.Name = "RactangleIDLable";
-            this.RactangleIDLable.Size = new System.Drawing.Size(18, 15);
+            this.RactangleIDLable.Size = new System.Drawing.Size(21, 15);
             this.RactangleIDLable.TabIndex = 10;
-            this.RactangleIDLable.Text = "ID";
+            this.RactangleIDLable.Text = "ID:";
             // 
             // CenterLable
             // 
             this.CenterLable.AutoSize = true;
-            this.CenterLable.Location = new System.Drawing.Point(144, 150);
+            this.CenterLable.Location = new System.Drawing.Point(141, 150);
             this.CenterLable.Name = "CenterLable";
-            this.CenterLable.Size = new System.Drawing.Size(42, 15);
+            this.CenterLable.Size = new System.Drawing.Size(45, 15);
             this.CenterLable.TabIndex = 9;
-            this.CenterLable.Text = "Center";
+            this.CenterLable.Text = "Center:";
             // 
             // RactabgleCenterTextBox
             // 
@@ -112,29 +112,29 @@
             // RectangleColorLabel
             // 
             this.RectangleColorLabel.AutoSize = true;
-            this.RectangleColorLabel.Location = new System.Drawing.Point(144, 106);
+            this.RectangleColorLabel.Location = new System.Drawing.Point(141, 106);
             this.RectangleColorLabel.Name = "RectangleColorLabel";
-            this.RectangleColorLabel.Size = new System.Drawing.Size(36, 15);
+            this.RectangleColorLabel.Size = new System.Drawing.Size(39, 15);
             this.RectangleColorLabel.TabIndex = 6;
-            this.RectangleColorLabel.Text = "Color";
+            this.RectangleColorLabel.Text = "Color:";
             // 
             // RectangleWidthLabel
             // 
             this.RectangleWidthLabel.AutoSize = true;
-            this.RectangleWidthLabel.Location = new System.Drawing.Point(144, 62);
+            this.RectangleWidthLabel.Location = new System.Drawing.Point(141, 62);
             this.RectangleWidthLabel.Name = "RectangleWidthLabel";
-            this.RectangleWidthLabel.Size = new System.Drawing.Size(39, 15);
+            this.RectangleWidthLabel.Size = new System.Drawing.Size(42, 15);
             this.RectangleWidthLabel.TabIndex = 5;
-            this.RectangleWidthLabel.Text = "Width";
+            this.RectangleWidthLabel.Text = "Width:";
             // 
             // RectangleLengthLabel
             // 
             this.RectangleLengthLabel.AutoSize = true;
             this.RectangleLengthLabel.Location = new System.Drawing.Point(141, 18);
             this.RectangleLengthLabel.Name = "RectangleLengthLabel";
-            this.RectangleLengthLabel.Size = new System.Drawing.Size(44, 15);
+            this.RectangleLengthLabel.Size = new System.Drawing.Size(47, 15);
             this.RectangleLengthLabel.TabIndex = 4;
-            this.RectangleLengthLabel.Text = "Length";
+            this.RectangleLengthLabel.Text = "Length:";
             // 
             // RectangleColorTextBox
             // 
@@ -174,18 +174,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.RactanglesGroupBox);
+            this.Controls.Add(this.RectanglesGroupBox);
             this.Name = "RectangleControl";
             this.Size = new System.Drawing.Size(230, 348);
-            this.RactanglesGroupBox.ResumeLayout(false);
-            this.RactanglesGroupBox.PerformLayout();
+            this.RectanglesGroupBox.ResumeLayout(false);
+            this.RectanglesGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox RactanglesGroupBox;
+        private System.Windows.Forms.GroupBox RectanglesGroupBox;
         private System.Windows.Forms.TextBox RactangleIDTextBox;
         private System.Windows.Forms.Label RactangleIDLable;
         private System.Windows.Forms.Label CenterLable;

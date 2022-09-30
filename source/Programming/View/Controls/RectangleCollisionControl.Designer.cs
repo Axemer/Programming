@@ -39,17 +39,21 @@
             this.YLabel = new System.Windows.Forms.Label();
             this.XLable = new System.Windows.Forms.Label();
             this.IDLable = new System.Windows.Forms.Label();
-            this.SelectedRactangleLabel = new System.Windows.Forms.Label();
-            this.RactangleReduceButton = new System.Windows.Forms.Button();
-            this.RactangleAddButton = new System.Windows.Forms.Button();
-            this.RqctangleLabel = new System.Windows.Forms.Label();
-            this.RactangleListBox = new System.Windows.Forms.ListBox();
+            this.SelectedRectangleLabel = new System.Windows.Forms.Label();
+            this.RectangleReduceButton = new System.Windows.Forms.Button();
+            this.RectangleAddButton = new System.Windows.Forms.Button();
+            this.RectangleLabel = new System.Windows.Forms.Label();
+            this.RectangleListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // RactangleCanvasPanel
             // 
+            this.RactangleCanvasPanel.AutoSize = true;
+            this.RactangleCanvasPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RactangleCanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RactangleCanvasPanel.Location = new System.Drawing.Point(173, 29);
+            this.RactangleCanvasPanel.MaximumSize = new System.Drawing.Size(2000, 2000);
+            this.RactangleCanvasPanel.MinimumSize = new System.Drawing.Size(309, 309);
             this.RactangleCanvasPanel.Name = "RactangleCanvasPanel";
             this.RactangleCanvasPanel.Size = new System.Drawing.Size(309, 309);
             this.RactangleCanvasPanel.TabIndex = 31;
@@ -90,8 +94,10 @@
             // 
             this.IDTextBox.Location = new System.Drawing.Point(67, 199);
             this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.ReadOnly = true;
             this.IDTextBox.Size = new System.Drawing.Size(100, 23);
             this.IDTextBox.TabIndex = 26;
+            this.IDTextBox.TabStop = false;
             // 
             // HeightLabel
             // 
@@ -138,71 +144,73 @@
             this.IDLable.TabIndex = 21;
             this.IDLable.Text = "ID:";
             // 
-            // SelectedRactangleLabel
+            // SelectedRectangleLabel
             // 
-            this.SelectedRactangleLabel.AutoSize = true;
-            this.SelectedRactangleLabel.Location = new System.Drawing.Point(6, 181);
-            this.SelectedRactangleLabel.Name = "SelectedRactangleLabel";
-            this.SelectedRactangleLabel.Size = new System.Drawing.Size(109, 15);
-            this.SelectedRactangleLabel.TabIndex = 20;
-            this.SelectedRactangleLabel.Text = "Selected Ractangle:";
+            this.SelectedRectangleLabel.AutoSize = true;
+            this.SelectedRectangleLabel.Location = new System.Drawing.Point(6, 181);
+            this.SelectedRectangleLabel.Name = "SelectedRectangleLabel";
+            this.SelectedRectangleLabel.Size = new System.Drawing.Size(109, 15);
+            this.SelectedRectangleLabel.TabIndex = 20;
+            this.SelectedRectangleLabel.Text = "Selected Rectangle:";
             // 
-            // RactangleReduceButton
+            // RectangleReduceButton
             // 
-            this.RactangleReduceButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
-            this.RactangleReduceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.RactangleReduceButton.FlatAppearance.BorderSize = 0;
-            this.RactangleReduceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RactangleReduceButton.Location = new System.Drawing.Point(103, 144);
-            this.RactangleReduceButton.Name = "RactangleReduceButton";
-            this.RactangleReduceButton.Size = new System.Drawing.Size(30, 30);
-            this.RactangleReduceButton.TabIndex = 19;
-            this.RactangleReduceButton.UseVisualStyleBackColor = true;
-            this.RactangleReduceButton.Click += new System.EventHandler(this.RactangleReduceButton_Click);
+            this.RectangleReduceButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
+            this.RectangleReduceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.RectangleReduceButton.FlatAppearance.BorderSize = 0;
+            this.RectangleReduceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RectangleReduceButton.Location = new System.Drawing.Point(103, 144);
+            this.RectangleReduceButton.Name = "RectangleReduceButton";
+            this.RectangleReduceButton.Size = new System.Drawing.Size(30, 30);
+            this.RectangleReduceButton.TabIndex = 19;
+            this.RectangleReduceButton.UseVisualStyleBackColor = true;
+            this.RectangleReduceButton.Click += new System.EventHandler(this.RactangleReduceButton_Click);
             // 
-            // RactangleAddButton
+            // RectangleAddButton
             // 
-            this.RactangleAddButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
-            this.RactangleAddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.RactangleAddButton.FlatAppearance.BorderSize = 0;
-            this.RactangleAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RactangleAddButton.Location = new System.Drawing.Point(28, 144);
-            this.RactangleAddButton.Name = "RactangleAddButton";
-            this.RactangleAddButton.Size = new System.Drawing.Size(30, 30);
-            this.RactangleAddButton.TabIndex = 18;
-            this.RactangleAddButton.UseVisualStyleBackColor = true;
-            this.RactangleAddButton.Click += new System.EventHandler(this.RactangleAddButton_Click);
+            this.RectangleAddButton.BackgroundImage = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
+            this.RectangleAddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.RectangleAddButton.FlatAppearance.BorderSize = 0;
+            this.RectangleAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RectangleAddButton.Location = new System.Drawing.Point(28, 144);
+            this.RectangleAddButton.Name = "RectangleAddButton";
+            this.RectangleAddButton.Size = new System.Drawing.Size(30, 30);
+            this.RectangleAddButton.TabIndex = 18;
+            this.RectangleAddButton.UseVisualStyleBackColor = true;
+            this.RectangleAddButton.Click += new System.EventHandler(this.RactangleAddButton_Click);
             // 
-            // RqctangleLabel
+            // RectangleLabel
             // 
-            this.RqctangleLabel.AutoSize = true;
-            this.RqctangleLabel.Location = new System.Drawing.Point(11, 11);
-            this.RqctangleLabel.Name = "RqctangleLabel";
-            this.RqctangleLabel.Size = new System.Drawing.Size(62, 15);
-            this.RqctangleLabel.TabIndex = 17;
-            this.RqctangleLabel.Text = "Ractangle:";
+            this.RectangleLabel.AutoSize = true;
+            this.RectangleLabel.Location = new System.Drawing.Point(11, 11);
+            this.RectangleLabel.Name = "RectangleLabel";
+            this.RectangleLabel.Size = new System.Drawing.Size(62, 15);
+            this.RectangleLabel.TabIndex = 17;
+            this.RectangleLabel.Text = "Rectangle:";
             // 
-            // RactangleListBox
+            // RectangleListBox
             // 
-            this.RactangleListBox.ColumnWidth = 2;
-            this.RactangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.RactangleListBox.FormattingEnabled = true;
-            this.RactangleListBox.HorizontalExtent = 100;
-            this.RactangleListBox.HorizontalScrollbar = true;
-            this.RactangleListBox.ItemHeight = 15;
-            this.RactangleListBox.Location = new System.Drawing.Point(11, 29);
-            this.RactangleListBox.Name = "RactangleListBox";
-            this.RactangleListBox.Size = new System.Drawing.Size(156, 109);
-            this.RactangleListBox.TabIndex = 16;
-            this.RactangleListBox.SelectedIndexChanged += new System.EventHandler(this.RactangleListBox_SelectedIndexChanged);
-            this.RactangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.RactangleListBox.MeasureItem += lst_MeasureItem;
-            this.RactangleListBox.DrawItem += lst_DrawItem;
+            this.RectangleListBox.ColumnWidth = 2;
+            this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.RectangleListBox.FormattingEnabled = true;
+            this.RectangleListBox.HorizontalExtent = 100;
+            this.RectangleListBox.HorizontalScrollbar = true;
+            this.RectangleListBox.ItemHeight = 15;
+            this.RectangleListBox.Location = new System.Drawing.Point(11, 29);
+            this.RectangleListBox.Name = "RectangleListBox";
+            this.RectangleListBox.Size = new System.Drawing.Size(156, 109);
+            this.RectangleListBox.TabIndex = 16;
+            this.RectangleListBox.SelectedIndexChanged += new System.EventHandler(this.RactangleListBox_SelectedIndexChanged);
+            this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.RectangleListBox.MeasureItem += MeasureItem;
+            this.RectangleListBox.DrawItem += DrawItem;
             // 
             // RectangleCollisionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.RactangleCanvasPanel);
             this.Controls.Add(this.HeightTextBox);
             this.Controls.Add(this.RactangleWidthTextBox);
@@ -214,11 +222,11 @@
             this.Controls.Add(this.YLabel);
             this.Controls.Add(this.XLable);
             this.Controls.Add(this.IDLable);
-            this.Controls.Add(this.SelectedRactangleLabel);
-            this.Controls.Add(this.RactangleReduceButton);
-            this.Controls.Add(this.RactangleAddButton);
-            this.Controls.Add(this.RqctangleLabel);
-            this.Controls.Add(this.RactangleListBox);
+            this.Controls.Add(this.SelectedRectangleLabel);
+            this.Controls.Add(this.RectangleReduceButton);
+            this.Controls.Add(this.RectangleAddButton);
+            this.Controls.Add(this.RectangleLabel);
+            this.Controls.Add(this.RectangleListBox);
             this.Name = "RectangleCollisionControl";
             this.Size = new System.Drawing.Size(496, 348);
             this.ResumeLayout(false);
@@ -239,10 +247,10 @@
         private System.Windows.Forms.Label YLabel;
         private System.Windows.Forms.Label XLable;
         private System.Windows.Forms.Label IDLable;
-        private System.Windows.Forms.Label SelectedRactangleLabel;
-        private System.Windows.Forms.Button RactangleReduceButton;
-        private System.Windows.Forms.Button RactangleAddButton;
-        private System.Windows.Forms.Label RqctangleLabel;
-        private System.Windows.Forms.ListBox RactangleListBox;
+        private System.Windows.Forms.Label SelectedRectangleLabel;
+        private System.Windows.Forms.Button RectangleReduceButton;
+        private System.Windows.Forms.Button RectangleAddButton;
+        private System.Windows.Forms.Label RectangleLabel;
+        private System.Windows.Forms.ListBox RectangleListBox;
     }
 }

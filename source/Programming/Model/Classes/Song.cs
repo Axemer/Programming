@@ -2,6 +2,9 @@
 
 namespace Programming.Model.Classes
 {
+	/// <summary>
+	/// Хранит данные песни.
+	/// </summary>
 	public class Song
 	{
 		/// <summary>

@@ -26,16 +26,16 @@ namespace Programming.View.Controls
         public RectangleCollisionControl()
         {
             //Programming.View.Controls.RectangleControl sm = new Programming.View.Controls.RectangleControl();
-            //_rectangles = sm._rectangles
-            
+            //_rectangles = sm._rectangles//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
             InitializeComponent();
 
             _rectangles = new List<Rectangle>();
-            _rectanglePanels = new List<Panel>(); // _rectangle.Count
+            _rectanglePanels = new List<Panel>(); // _rectangle.Count/////////////////////////////////////////////////////////////////////////////////
             _rectanglesCollision = new List<Rectangle>();
 
-            for (int i = 0; i < 5; i++) ////////// оно тут временно
+            for (int i = 0; i < 5; i++) ////////// оно тут временно/////////////////////////////////////////////////////////////////////////////////
             {
 
                 Rectangle newRectangle = RectangleFactory.Randomize(
@@ -51,15 +51,21 @@ namespace Programming.View.Controls
 
                 _rectanglesCollision.Add(newRectangle);
 
-                RactangleListBox.Items.Add(
-                    $"{i+1}: (" +
-                    $"X = {_rectangles[i].Center.X}; " +
-                    $"Y = {_rectangles[i].Center.Y}; " +
-                    "                                " +
-                    $"W = {_rectangles[i].Length}; " +
-                    $"H = {_rectangles[i].Width}) ");
-            }
+                _currentRectangle = newRectangle;
 
+                CanvasAddRectangle();
+                FindCollisions();
+
+                //RectangleListBox.Items.Add(
+                //    $"{i+1}: (" +
+                //    $"X = {_rectangles[i].Center.X}; " +
+                //    $"Y = {_rectangles[i].Center.Y}; " +
+                //    "                                " +
+                //    $"W = {_rectangles[i].Length}; " +
+                //    $"H = {_rectangles[i].Width}) ");
+            }
+            _currentRectangle = null;
+            RactangleListBoxUpdateItems();
         }
 
         /// <summary>
@@ -105,7 +111,7 @@ namespace Programming.View.Controls
         /// </summary>
         private void ClearRectangleInfo()
         {
-            RactangleListBox.Items.Clear();
+            RectangleListBox.Items.Clear();
             IDTextBox.Clear();
             XTextBox.Clear();
             YTextBox.Clear();
@@ -124,8 +130,7 @@ namespace Programming.View.Controls
             foreach (var rectangle in _rectangles)
             {
                 i++;
-
-                RactangleListBox.Items.Add(
+                RectangleListBox.Items.Add(
                     $"{i}: (" +
                     $"X = {rectangle.Center.X}; " +
                     $"Y = {rectangle.Center.Y}; " +
@@ -135,9 +140,21 @@ namespace Programming.View.Controls
             }
         }
 
+        private void CanvasAddRectangle()
+        {
+            Panel rectanglePanel = InitPanel();
+            _rectanglePanels.Add(rectanglePanel);
+            _rectanglesCollision.Add(_currentRectangle);
+            RactangleCanvasPanel.Controls.Add(rectanglePanel);
+        }
+
+        /// <summary>
+        /// Обновляет данные о прямоугольнике
+        /// </summary>
+        /// <param name="rectangle"></param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
-            //RectCollisionIDTextBox.Text = rectangle.ID.ToString();
+            //RectCollisionIDTextBox.Text = rectangle.ID.ToString();/////////////////////////////////////////////////////////////////////////////////
             if (_currentRectanglePanel != null)
             {
                 if (XTextBox.Focused == true)
@@ -171,7 +188,7 @@ namespace Programming.View.Controls
 
 
                 // int newHeight = rectangle.Width;
-                //_currentRectanglePanel.Location = new Point(newX, newY);
+                //_currentRectanglePanel.Location = new Point(newX, newY);/////////////////////////////////////////////////////////////////////////////////
 
             }
 
@@ -179,9 +196,9 @@ namespace Programming.View.Controls
 
         private void RactangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RactangleListBox.SelectedIndex == -1)
+            if (RectangleListBox.SelectedIndex == -1)
                 return;
-            int rectangleIndex = RactangleListBox.SelectedIndex;
+            int rectangleIndex = RectangleListBox.SelectedIndex;
             _currentRectangle = _rectangles[rectangleIndex];
             if (_rectanglePanels.Count >= rectangleIndex + 1)
                 _currentRectanglePanel = _rectanglePanels[rectangleIndex];
@@ -199,15 +216,12 @@ namespace Programming.View.Controls
         {
             _rectangles.Add(RectangleFactory.Randomize(RactangleCanvasPanel.Width, RactangleCanvasPanel.Height));
 
-            if (RactangleListBox.SelectedIndex >= 0)
+            if (RectangleListBox.SelectedIndex >= 0)
             {
                 Panel rectanglePanel = InitPanel();
                 _rectanglePanels.Add(rectanglePanel);
                 _rectanglesCollision.Add(_currentRectangle);
-
-                // ничего не понимаю
-
-                RactangleCanvasPanel.Controls.Add(rectanglePanel); // без нее не рисутся графика
+                RactangleCanvasPanel.Controls.Add(rectanglePanel);
             }
             ClearRectangleInfo();
             RactangleListBoxUpdateItems();
@@ -216,14 +230,14 @@ namespace Programming.View.Controls
 
         private void RactangleReduceButton_Click(object sender, EventArgs e)
         {
-            int rectangleIndexSecond = RactangleListBox.SelectedIndex;
+            int rectangleIndexSecond = RectangleListBox.SelectedIndex;
             if (rectangleIndexSecond == -1) return;
             try
             {
                 _rectanglesCollision.RemoveAt(rectangleIndexSecond);
                 _rectangles.RemoveAt(rectangleIndexSecond);
                 _rectanglePanels.RemoveAt(rectangleIndexSecond);
-                RactangleCanvasPanel.Controls.RemoveAt(rectangleIndexSecond); /////////////////// nichego ne rabotae prichem ne yasno pochemu i eto ne sovsem izza -1
+                RactangleCanvasPanel.Controls.RemoveAt(rectangleIndexSecond);
             }
             catch (System.ArgumentOutOfRangeException)
             {
@@ -231,8 +245,9 @@ namespace Programming.View.Controls
             }
             finally
             {
-                //CanvasUpdate();
+                //CanvasUpdate();/////////////////////////////////////////////////////////////////////////////////
                 ClearRectangleInfo();
+                RectangleListBox.Items.Clear();
                 RactangleListBoxUpdateItems();
 
                 FindCollisions();
@@ -245,11 +260,11 @@ namespace Programming.View.Controls
             {
                 _currentRectangle.Center.X = int.Parse(XTextBox.Text);
                 XTextBox.BackColor = _defaultColor;
-                Panel rectanglePanel = _rectanglePanels[RactangleListBox.SelectedIndex];
+                Panel rectanglePanel = _rectanglePanels[RectangleListBox.SelectedIndex];
 
                 UpdateRectangleInfo(_currentRectangle);
                 FindCollisions();
-                //CanvasUpdate();
+                CanvasUpdate();//////////////////////////////////////////////////////////////////////////////////
             }
 
             catch (Exception)
@@ -257,6 +272,8 @@ namespace Programming.View.Controls
                 XTextBox.BackColor = System.Drawing.Color.LightPink;
             }
             XTextBox.BackColor = _defaultColor;
+            RectangleListBox.Items.Clear();
+            RactangleListBoxUpdateItems();
         }
 
         private void YTextBox_TextChanged(object sender, EventArgs e)
@@ -266,7 +283,7 @@ namespace Programming.View.Controls
                 _currentRectangle.Center.Y = int.Parse(YTextBox.Text);
                 YTextBox.BackColor = _defaultColor;
                 FindCollisions();
-                //CanvasUpdate();
+                //CanvasUpdate();/////////////////////////////////////////////////////////////////////////////////
                 UpdateRectangleInfo(_currentRectangle);
             }
 
@@ -275,6 +292,8 @@ namespace Programming.View.Controls
                 YTextBox.BackColor = System.Drawing.Color.LightPink;
             }
             YTextBox.BackColor = _defaultColor;
+            RectangleListBox.Items.Clear();
+            RactangleListBoxUpdateItems();
         }
 
         private void RactangleWidthTextBox_TextChanged(object sender, EventArgs e)
@@ -285,7 +304,7 @@ namespace Programming.View.Controls
                 RactangleWidthTextBox.BackColor = _defaultColor;
                 UpdateRectangleInfo(_currentRectangle);
                 FindCollisions();
-                //CanvasUpdate();
+                //CanvasUpdate();/////////////////////////////////////////////////////////////////////////////////
             }
 
             catch (Exception)
@@ -293,6 +312,8 @@ namespace Programming.View.Controls
                 RactangleWidthTextBox.BackColor = _errorBackColor;
             }
             RactangleWidthTextBox.BackColor = _defaultColor;
+            RectangleListBox.Items.Clear(); ////////////////////////// тут ошибка с 2ой строкой фикси давай
+            RactangleListBoxUpdateItems();
         }
 
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
@@ -303,7 +324,7 @@ namespace Programming.View.Controls
                 HeightTextBox.BackColor = _defaultColor;
                 UpdateRectangleInfo(_currentRectangle);
                 FindCollisions();
-                //CanvasUpdate();
+                //CanvasUpdate();/////////////////////////////////////////////////////////////////////////////////
 
             }
 
@@ -312,6 +333,8 @@ namespace Programming.View.Controls
                 HeightTextBox.BackColor = System.Drawing.Color.LightPink;
             }
             HeightTextBox.BackColor = _defaultColor;
+            RectangleListBox.Items.Clear();
+            RactangleListBoxUpdateItems();
         }
 
         /// <summary>
@@ -333,9 +356,9 @@ namespace Programming.View.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lst_MeasureItem(object sender, MeasureItemEventArgs e)
+        private void MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            e.ItemHeight = (int)e.Graphics.MeasureString(RactangleListBox.Items[e.Index].ToString(), RactangleListBox.Font, RactangleListBox.Width).Height;
+            e.ItemHeight = (int)e.Graphics.MeasureString(RectangleListBox.Items[e.Index].ToString(), RectangleListBox.Font, RectangleListBox.Width).Height;
         }
 
         /// <summary>
@@ -343,24 +366,23 @@ namespace Programming.View.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lst_DrawItem(object sender, DrawItemEventArgs e)
+        private void DrawItem(object sender, DrawItemEventArgs e)
         {
-            if (RactangleListBox.Items.Count > 0)
+            if (RectangleListBox.Items.Count > 0)
             {
                 e.DrawBackground();
                 e.DrawFocusRectangle();
-                e.Graphics.DrawString(RactangleListBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+                e.Graphics.DrawString(RectangleListBox.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
             }
         }
 
 
 
-        ////used in main foe desighner in Ractavngle list Box 
-        //this.RactangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-        //this.RactangleListBox.MeasureItem += lst_MeasureItem;
-        //this.RactangleListBox.DrawItem += lst_DrawItem;
+        ////used in main foe designer in Rectangle list Box 
+        //this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+        //this.RectangleListBox.MeasureItem += MeasureItem;
+        //this.RectangleListBox.DrawItem += DrawItem;
         ////
         //////////////// if double line listbox broke isert this in it's place 
-        ///при любых изменениях в дизайнере все слктает м надо заново вставлять
     }
 }

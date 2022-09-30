@@ -3,6 +3,9 @@ using Programming.Model.Enums;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Создает прямоугольники с рандомными значениями и учетом отступа.
+    /// </summary>
     internal class RectangleFactory
     {
         /// <summary>
@@ -26,7 +29,6 @@ namespace Programming.Model.Geometry
             int randomY = rnd.Next(randomHeight+margin, canvasHeight - (margin +randomHeight));
             Array colors = Enum.GetValues(typeof(Color));
             Color randomColor = (Color)colors.GetValue(rnd.Next(colors.Length));
-            //Point2D randomCenter = new Point2D(randomX, randomY);
             Rectangle newRectangle = new Rectangle(randomHeight, randomWidth,
                                     randomColor.ToString(), randomX, randomY);
             return newRectangle;

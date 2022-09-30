@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -32,6 +33,26 @@ namespace ObjectOrientedPractics.Model
         private double _cost;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private const int NameMaxLenght = 200;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private const int InfoMaxLenght = 1000;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private const double MaxCost = 100000.0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private const double MinCost = 0.0;
+
+        /// <summary>
         /// Возвращает и задаёт имя товара. Не более 200 символов.
         /// </summary>
         private string Name
@@ -42,7 +63,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-
+                _name = Validator.AssertStringMaxLength(value, "Name", NameMaxLenght);
             }
         }
 
@@ -57,7 +78,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-
+                _info = Validator.AssertStringMaxLength(value, "Info", InfoMaxLenght);
             }
         }
 
@@ -71,8 +92,8 @@ namespace ObjectOrientedPractics.Model
                 return _cost;
             }
             set 
-            { 
-                _cost = value; 
+            {
+                _cost = Validator.AssertValueInRange("Cost", value, MinCost, MaxCost);
             }
         }
 

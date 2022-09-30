@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Programming.Model.Geometry
 {
+    /// <summary>
+    /// Проверяет пересечения прямоугольников и колец.
+    /// </summary>
     internal class CollisionManager
     {
         /// <summary>
