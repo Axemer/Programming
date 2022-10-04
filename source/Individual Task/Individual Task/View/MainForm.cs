@@ -147,6 +147,9 @@ namespace Individual_Task
             CategoryComboBox.Enabled = false;
         }
 
+        /// <summary>
+        /// Чистит все ткстбоксы и меняется цвет на цвет по умолчанию.
+        /// </summary>
         void ClearAllFields()
         {
             NameTextBox.Text = null;

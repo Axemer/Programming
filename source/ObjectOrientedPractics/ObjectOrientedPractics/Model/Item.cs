@@ -15,7 +15,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Уникальный номер товара.
         /// </summary>
-        private readonly int _id;
+        private static int _id;
 
         /// <summary>
         /// Название товара.
@@ -53,9 +53,14 @@ namespace ObjectOrientedPractics.Model
         private const double MinCost = 0.0;
 
         /// <summary>
+        /// Уникальный индентификатор предмета.
+        /// </summary>
+        public int ID { get; set; }
+
+        /// <summary>
         /// Возвращает и задаёт имя товара. Не более 200 символов.
         /// </summary>
-        private string Name
+        public string Name
         {
             get
             {
@@ -70,7 +75,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задаёт описание товара. Не более 1000 символов.
         /// </summary>
-        private string Info
+        public string Info
         {
             get
             {
@@ -85,7 +90,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задаёт цену товара. От 0 до 100 000.
         /// </summary>
-        private double Cost
+        public double Cost
         {
             get 
             {
@@ -97,13 +102,19 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="info"></param>
+        /// <param name="cost"></param>
         public Item(string name, string info, double cost)
         {
             _id++;
             Name = name;
             Info = info;
-            Cost = cost;
-            
+            Cost = cost;       
+            ID = _id;
         }
     }
 }
