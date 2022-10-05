@@ -36,10 +36,18 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private const int AddressMaxLength = 500;
 
+        public int ID 
+        {
+            get
+            {
+                return _id; 
+            } 
+        }
+
         /// <summary>
         /// 
         /// </summary>
-        private string Fullname
+        public string Fullname
         {
             get
             {
@@ -54,7 +62,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// 
         /// </summary>
-        private string Address
+        public string Address
         {
             get 
             {
