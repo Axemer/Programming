@@ -26,7 +26,7 @@ namespace ObjectOrientedPractics.View
         /// <summary>
         /// Обновляет информацию внутри ListBox.
         /// </summary>
-        void UpdateListBox()
+        private void UpdateListBox()
         {
             ItemsListBox.Items.Clear();
             foreach (Item product in _items)
@@ -38,7 +38,7 @@ namespace ObjectOrientedPractics.View
         /// <summary>
         /// Чистит все ткстбоксы и меняется цвет на цвет по умолчанию.
         /// </summary>
-        void ClearAllFields()
+        private void ClearAllFields()
         {
             NameTextBox.Text = null;
             DescriptionTextBox.Text = null;
@@ -95,13 +95,13 @@ namespace ObjectOrientedPractics.View
                 if(ItemsListBox.SelectedIndex >= 0)
                 {
                     _currentItem.Name = NameTextBox.Text;
-                    NameTextBox.BackColor = Color.White;
+                    NameTextBox.BackColor = AppColors._defaultColor;
                     UpdateListBox();
                 }
             }
             catch
             {
-                NameTextBox.BackColor = Color.Red;
+                NameTextBox.BackColor = AppColors._errorColor;
             }
         }
 
@@ -112,12 +112,12 @@ namespace ObjectOrientedPractics.View
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
                     _currentItem.Info = DescriptionTextBox.Text;
-                    DescriptionTextBox.BackColor = Color.White;
+                    DescriptionTextBox.BackColor = AppColors._defaultColor;
                 }
             }
             catch
             {
-                DescriptionTextBox.BackColor = Color.Red;
+                DescriptionTextBox.BackColor = AppColors._errorColor;
             }
         }
 
@@ -128,12 +128,12 @@ namespace ObjectOrientedPractics.View
                 if (ItemsListBox.SelectedIndex >= 0)
                 {
                     _currentItem.Cost = double.Parse(CostTextBox.Text);
-                    CostTextBox.BackColor = Color.White;
+                    CostTextBox.BackColor = AppColors._defaultColor;
                 }
             }
             catch
             {
-                CostTextBox.BackColor = Color.Red;
+                CostTextBox.BackColor = AppColors._errorColor;
             }
         }
     }

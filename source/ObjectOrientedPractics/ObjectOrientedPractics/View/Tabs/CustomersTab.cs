@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 
@@ -14,19 +9,19 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class CustomersTab : UserControl
     {
         /// <summary>
-        /// 
+        /// Список покупателей.
         /// </summary>
         private List<Customer> _customers;
 
         /// <summary>
-        /// 
+        /// Содержит данные о выбраном покупателе.
         /// </summary>
         private Customer _currentCustomer;
 
         /// <summary>
         /// Обновляет информацию внутри ListBox.
         /// </summary>
-        void UpdateListBox()
+        private void UpdateListBox()
         {
             CustomersListBox.Items.Clear();
             foreach (Customer customer in _customers)
@@ -38,11 +33,16 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Чистит все ткстбоксы и меняется цвет на цвет по умолчанию.
         /// </summary>
-        void ClearAllFields()
+        private void ClearAllFields()
         {
             FullnameTextBox.Text = null;
             AddressTextBox.Text = null;
             IDTextBox.Text = null;
+
+            FullnameTextBox.BackColor = AppColors._defaultColor;
+            AddressTextBox.BackColor = AppColors._defaultColor;
+            IDTextBox.BackColor = AppColors._defaultColor;
+
         }
 
         public CustomersTab()
@@ -70,13 +70,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (CustomersListBox.SelectedIndex >= 0)
                 {
                     _currentCustomer.Fullname = FullnameTextBox.Text;
-                    FullnameTextBox.BackColor = Color.White;
+                    FullnameTextBox.BackColor = AppColors._defaultColor;
                     UpdateListBox();
                 }
             }
             catch
             {
-                FullnameTextBox.BackColor = Color.Red;
+                FullnameTextBox.BackColor = AppColors._errorColor;
             }
         }
 
@@ -87,13 +87,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 if (CustomersListBox.SelectedIndex >= 0)
                 {
                     _currentCustomer.Address = AddressTextBox.Text;
-                    AddressTextBox.BackColor = Color.White;
+                    AddressTextBox.BackColor = AppColors._defaultColor;
                     UpdateListBox();
                 }
             }
             catch
             {
-                AddressTextBox.BackColor = Color.Red;
+                AddressTextBox.BackColor = AppColors._errorColor;
             }
         }
 

@@ -15,7 +15,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Уникальный номер товара.
         /// </summary>
-        private static int _id;
+        private readonly int _id;
 
         /// <summary>
         /// Название товара.
@@ -33,22 +33,22 @@ namespace ObjectOrientedPractics.Model
         private double _cost;
 
         /// <summary>
-        /// 
+        /// Максимальная длинна названия.
         /// </summary>
         private const int NameMaxLenght = 200;
 
         /// <summary>
-        /// 
+        /// Максимальная длинна описания.
         /// </summary>
         private const int InfoMaxLenght = 1000;
 
         /// <summary>
-        /// 
+        /// Маесиммальная стоимость.
         /// </summary>
         private const double MaxCost = 100000.0;
 
         /// <summary>
-        /// 
+        /// Минимальная стоимость.
         /// </summary>
         private const double MinCost = 0.0;
 
@@ -103,11 +103,11 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// 
+        /// Создаёт экземпляр класса <see cref="Item"/>
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="info"></param>
-        /// <param name="cost"></param>
+        /// <param name="name">азвание товара. Предельная длина 200 символов.</param>
+        /// <param name="info">Описание товара. Предельная длина 1000 символов.</param>
+        /// <param name="cost">Цена товара. Допустимо значение от 0 до 100000.</param>
         public Item(string name, string info, double cost)
         {
             _id++;

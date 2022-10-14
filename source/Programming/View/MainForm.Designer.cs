@@ -130,9 +130,12 @@ namespace Programming.View
             // 
             // rectangleCollisionControl1
             // 
-            this.rectangleCollisionControl1.Location = new System.Drawing.Point(0, 0);
+            this.rectangleCollisionControl1.AutoSize = true;
+            this.rectangleCollisionControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rectangleCollisionControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rectangleCollisionControl1.Location = new System.Drawing.Point(3, 3);
             this.rectangleCollisionControl1.Name = "rectangleCollisionControl1";
-            this.rectangleCollisionControl1.Size = new System.Drawing.Size(496, 348);
+            this.rectangleCollisionControl1.Size = new System.Drawing.Size(490, 342);
             this.rectangleCollisionControl1.TabIndex = 0;
             // 
             // MainForm
@@ -150,6 +153,7 @@ namespace Programming.View
             this.EnumsTabPage.ResumeLayout(false);
             this.ClassesTabPage.ResumeLayout(false);
             this.RactanglesTab.ResumeLayout(false);
+            this.RactanglesTab.PerformLayout();
             this.ResumeLayout(false);
 
         }

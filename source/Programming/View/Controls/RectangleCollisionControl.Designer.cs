@@ -30,7 +30,7 @@
         {
             this.RactangleCanvasPanel = new System.Windows.Forms.Panel();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
-            this.RactangleWidthTextBox = new System.Windows.Forms.TextBox();
+            this.RectangleWidthTextBox = new System.Windows.Forms.TextBox();
             this.YTextBox = new System.Windows.Forms.TextBox();
             this.XTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
@@ -48,8 +48,9 @@
             // 
             // RactangleCanvasPanel
             // 
-            this.RactangleCanvasPanel.AutoSize = true;
-            this.RactangleCanvasPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RactangleCanvasPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RactangleCanvasPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RactangleCanvasPanel.Location = new System.Drawing.Point(173, 29);
             this.RactangleCanvasPanel.MaximumSize = new System.Drawing.Size(2000, 2000);
@@ -66,13 +67,13 @@
             this.HeightTextBox.TabIndex = 30;
             this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
-            // RactangleWidthTextBox
+            // RectangleWidthTextBox
             // 
-            this.RactangleWidthTextBox.Location = new System.Drawing.Point(67, 286);
-            this.RactangleWidthTextBox.Name = "RactangleWidthTextBox";
-            this.RactangleWidthTextBox.Size = new System.Drawing.Size(100, 23);
-            this.RactangleWidthTextBox.TabIndex = 29;
-            this.RactangleWidthTextBox.TextChanged += new System.EventHandler(this.RactangleWidthTextBox_TextChanged);
+            this.RectangleWidthTextBox.Location = new System.Drawing.Point(67, 286);
+            this.RectangleWidthTextBox.Name = "RectangleWidthTextBox";
+            this.RectangleWidthTextBox.Size = new System.Drawing.Size(100, 23);
+            this.RectangleWidthTextBox.TabIndex = 29;
+            this.RectangleWidthTextBox.TextChanged += new System.EventHandler(this.RectangleWidthTextBox_TextChanged);
             // 
             // YTextBox
             // 
@@ -201,8 +202,6 @@
             this.RectangleListBox.Size = new System.Drawing.Size(156, 109);
             this.RectangleListBox.TabIndex = 16;
             this.RectangleListBox.SelectedIndexChanged += new System.EventHandler(this.RactangleListBox_SelectedIndexChanged);
-            this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.RectangleListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.RectangleListBox.MeasureItem += MeasureItem;
             this.RectangleListBox.DrawItem += DrawItem;
             // 
@@ -210,10 +209,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoSize = true;
             this.Controls.Add(this.RactangleCanvasPanel);
             this.Controls.Add(this.HeightTextBox);
-            this.Controls.Add(this.RactangleWidthTextBox);
+            this.Controls.Add(this.RectangleWidthTextBox);
             this.Controls.Add(this.YTextBox);
             this.Controls.Add(this.XTextBox);
             this.Controls.Add(this.IDTextBox);
@@ -238,7 +237,7 @@
 
         private System.Windows.Forms.Panel RactangleCanvasPanel;
         private System.Windows.Forms.TextBox HeightTextBox;
-        private System.Windows.Forms.TextBox RactangleWidthTextBox;
+        private System.Windows.Forms.TextBox RectangleWidthTextBox;
         private System.Windows.Forms.TextBox YTextBox;
         private System.Windows.Forms.TextBox XTextBox;
         private System.Windows.Forms.TextBox IDTextBox;

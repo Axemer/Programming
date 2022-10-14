@@ -100,6 +100,15 @@ namespace ObjectOrientedPractics.Model
             return value;
         }
 
+
+        /// <summary>
+        /// Провека строки на удовлетворение условию заданной длинны.
+        /// </summary>
+        /// <param name="value">Значение переменной строки.</param>
+        /// <param name="nameProperty">Имя переменной строки.</param>
+        /// <param name="MaxLength">Максимальный порог динны.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static string AssertStringMaxLength(string value, string nameProperty, int MaxLength)
         {
             for (int i = 0; i < value.Length; i++)
