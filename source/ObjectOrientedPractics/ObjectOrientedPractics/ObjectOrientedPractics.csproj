@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\AppColors.cs" />
+    <Compile Include="Services\AppColors.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\Validator.cs" />
+    <Compile Include="Services\IDGenerator.cs" />
+    <Compile Include="Services\Validator.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,8 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

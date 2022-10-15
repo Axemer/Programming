@@ -1,4 +1,5 @@
-﻿
+﻿using ObjectOrientedPractics.Services;
+
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
@@ -79,7 +80,7 @@ namespace ObjectOrientedPractics.Model
         /// <param name="address">Адрес покупателя.</param>
         public Customer(string fullname, string address)
         {
-            _id++;
+            _id = IDGenerator.GetNextID();
             Fullname = fullname;
             Address = address;
         }

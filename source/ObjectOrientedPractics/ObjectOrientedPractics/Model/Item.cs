@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ObjectOrientedPractics.Model;
+﻿using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -53,9 +48,15 @@ namespace ObjectOrientedPractics.Model
         private const double MinCost = 0.0;
 
         /// <summary>
-        /// Уникальный индентификатор предмета.
+        /// Получает id товара.
         /// </summary>
-        public int ID { get; set; }
+        public int ID
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         /// <summary>
         /// Возвращает и задаёт имя товара. Не более 200 символов.
@@ -110,11 +111,10 @@ namespace ObjectOrientedPractics.Model
         /// <param name="cost">Цена товара. Допустимо значение от 0 до 100000.</param>
         public Item(string name, string info, double cost)
         {
-            _id++;
+            _id = IDGenerator.GetNextID();
             Name = name;
             Info = info;
             Cost = cost;       
-            ID = _id;
         }
     }
 }

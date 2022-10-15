@@ -41,8 +41,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
             FullnameTextBox.BackColor = AppColors._defaultColor;
             AddressTextBox.BackColor = AppColors._defaultColor;
-            IDTextBox.BackColor = AppColors._defaultColor;
-
         }
 
         public CustomersTab()
@@ -67,12 +65,9 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                if (CustomersListBox.SelectedIndex >= 0)
-                {
-                    _currentCustomer.Fullname = FullnameTextBox.Text;
-                    FullnameTextBox.BackColor = AppColors._defaultColor;
-                    UpdateListBox();
-                }
+                _currentCustomer.Fullname = FullnameTextBox.Text;
+                FullnameTextBox.BackColor = AppColors._defaultColor;
+                UpdateListBox();
             }
             catch
             {
@@ -84,12 +79,9 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             try
             {
-                if (CustomersListBox.SelectedIndex >= 0)
-                {
-                    _currentCustomer.Address = AddressTextBox.Text;
-                    AddressTextBox.BackColor = AppColors._defaultColor;
-                    UpdateListBox();
-                }
+                _currentCustomer.Address = AddressTextBox.Text;
+                AddressTextBox.BackColor = AppColors._defaultColor;
+                UpdateListBox();
             }
             catch
             {
