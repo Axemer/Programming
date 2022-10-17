@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ProductsListBox = new System.Windows.Forms.ListBox();
             this.AddButton = new System.Windows.Forms.Button();
@@ -41,11 +42,14 @@
             this.QuantityTextBox = new System.Windows.Forms.TextBox();
             this.ManufacturerTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SelectedProductGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProductsListBox
             // 
+            this.ProductsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ProductsListBox.FormattingEnabled = true;
             this.ProductsListBox.Location = new System.Drawing.Point(12, 12);
             this.ProductsListBox.Name = "ProductsListBox";
@@ -55,6 +59,7 @@
             // 
             // AddButton
             // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.BackgroundImage = global::Individual_Task.Properties.Resources.add;
             this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AddButton.Location = new System.Drawing.Point(12, 412);
@@ -66,6 +71,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteButton.BackgroundImage = global::Individual_Task.Properties.Resources.Delete;
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.DeleteButton.Location = new System.Drawing.Point(48, 412);
@@ -77,6 +83,8 @@
             // 
             // SelectedProductGroupBox
             // 
+            this.SelectedProductGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedProductGroupBox.Controls.Add(this.CategoryComboBox);
             this.SelectedProductGroupBox.Controls.Add(this.QuantityLabel);
             this.SelectedProductGroupBox.Controls.Add(this.CategoryLabel);
@@ -86,6 +94,7 @@
             this.SelectedProductGroupBox.Controls.Add(this.ManufacturerTextBox);
             this.SelectedProductGroupBox.Controls.Add(this.NameTextBox);
             this.SelectedProductGroupBox.Location = new System.Drawing.Point(268, 12);
+            this.SelectedProductGroupBox.MinimumSize = new System.Drawing.Size(404, 130);
             this.SelectedProductGroupBox.Name = "SelectedProductGroupBox";
             this.SelectedProductGroupBox.Size = new System.Drawing.Size(404, 130);
             this.SelectedProductGroupBox.TabIndex = 6;
@@ -147,18 +156,26 @@
             // 
             // ManufacturerTextBox
             // 
+            this.ManufacturerTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ManufacturerTextBox.Location = new System.Drawing.Point(96, 45);
+            this.ManufacturerTextBox.MaxLength = 150;
             this.ManufacturerTextBox.Name = "ManufacturerTextBox";
             this.ManufacturerTextBox.Size = new System.Drawing.Size(298, 20);
             this.ManufacturerTextBox.TabIndex = 1;
+            this.ToolTip.SetToolTip(this.ManufacturerTextBox, "Имя производителя должно быть не более 100 символов.");
             this.ManufacturerTextBox.TextChanged += new System.EventHandler(this.ManufacturerTextBox_TextChanged);
             // 
             // NameTextBox
             // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(96, 19);
+            this.NameTextBox.MaxLength = 150;
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(298, 20);
             this.NameTextBox.TabIndex = 0;
+            this.ToolTip.SetToolTip(this.NameTextBox, "Название должно быть не более 100 символов.");
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // MainForm
@@ -171,9 +188,9 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ProductsListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Product List App";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.SelectedProductGroupBox.ResumeLayout(false);
             this.SelectedProductGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -194,6 +211,7 @@
         private System.Windows.Forms.TextBox QuantityTextBox;
         private System.Windows.Forms.TextBox ManufacturerTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }
 

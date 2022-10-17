@@ -8,7 +8,6 @@ namespace Individual_Task
 {
     public partial class MainForm : Form
     {
-        
         /// <summary>
         /// Список всех продуктов.
         /// </summary>
@@ -34,14 +33,17 @@ namespace Individual_Task
             InitializeComponent();
             _currentProduct = new Product();
             CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
+            ProjectSerializer.DeserializeListBoxJSON(_products);
             CategoryComboBox.SelectedIndex = -1;
             LockAllFields();
+            UpdateListBox();
         }
 
         private void ProductsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ProductsListBox.SelectedIndex >= 0)
             {
+                SetToDefaultAllFields();
                 _currentProduct = _products[ProductsListBox.SelectedIndex];
                 NameTextBox.Text = _currentProduct.Name;
                 ManufacturerTextBox.Text = _currentProduct.Manufacturer;
@@ -57,11 +59,13 @@ namespace Individual_Task
                 _currentProduct.Name = NameTextBox.Text;
                 NameTextBox.BackColor = _defaultColor;
                 _products.Sort((a, b) => a.Name.CompareTo(b.Name));
+                ToolTip.Hide(NameTextBox);
                 UpdateListBox();
             }
             catch
             {
                 NameTextBox.BackColor = _errorColor;
+                ToolTip.Show("Название должно быть не более 100 символов!", NameTextBox);
             }
         }
 
@@ -71,10 +75,12 @@ namespace Individual_Task
             {
                 _currentProduct.Manufacturer = ManufacturerTextBox.Text;
                 ManufacturerTextBox.BackColor = _defaultColor;
+                ToolTip.Hide(ManufacturerTextBox);
             }
             catch
             {
                 ManufacturerTextBox.BackColor = _errorColor;
+                ToolTip.Show("Имя производителя должно быть не более 100 символов!", ManufacturerTextBox);
             }
         }
 
@@ -122,6 +128,11 @@ namespace Individual_Task
                 ClearAllFields();
                 LockAllFields();
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProjectSerializer.SerializeListJSON(_products);
         }
 
         /// <summary>

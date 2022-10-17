@@ -78,7 +78,7 @@ namespace Individual_Task.Model.Classes
         }
 
         /// <summary>
-        /// Создать экземпляр класса <see cref="Product"/>
+        /// Создать экземпляр класса <see cref="Product"/>.
         /// </summary>
         /// <param name="name">Название продукта. Всегда положительна.</param>
         /// <param name="manufacturer">Производитель продукта. Всегда положительна.</param>
@@ -93,7 +93,7 @@ namespace Individual_Task.Model.Classes
             
         }
         /// <summary>
-        /// Создаёт экземпляр класса <see cref="Product"/>
+        /// Создаёт экземпляр класса <see cref="Product"/>.
         /// </summary>
         public Product()
         {
