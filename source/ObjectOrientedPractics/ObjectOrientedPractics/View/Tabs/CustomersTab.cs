@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Classes;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -14,7 +15,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private List<Customer> _customers;
 
         /// <summary>
-        /// Содержит данные о выбраном покупателе.
+        /// Содержит данные о выбранном покупателе.
         /// </summary>
         private Customer _currentCustomer;
 
@@ -36,11 +37,10 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ClearAllFields()
         {
             FullnameTextBox.Text = null;
-            AddressTextBox.Text = null;
             IDTextBox.Text = null;
+            AddressControl._address = null;
 
             FullnameTextBox.BackColor = AppColors._defaultColor;
-            AddressTextBox.BackColor = AppColors._defaultColor;
         }
 
         public CustomersTab()
@@ -57,7 +57,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = _customers[CustomersListBox.SelectedIndex];
                 IDTextBox.Text = $"{_currentCustomer.ID}";
                 FullnameTextBox.Text = _currentCustomer.Fullname;
-                AddressTextBox.Text = _currentCustomer.Address;
+
+                AddressControl._address = _currentCustomer.Address;
+                AddressControl.IndexTextBox.Text = _currentCustomer.Address.Index.ToString();
+                AddressControl.CountryTextBox.Text = _currentCustomer.Address.Country;
+                AddressControl.CityTextBox.Text = _currentCustomer.Address.City;
+                AddressControl.StreetTextBox.Text = _currentCustomer.Address.Street;
+                AddressControl.BuildingTextBox.Text = _currentCustomer.Address.Building;
+                AddressControl.ApartmentTextBox.Text = _currentCustomer.Address.Apartment;
             }
         }
 
@@ -75,23 +82,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                _currentCustomer.Address = AddressTextBox.Text;
-                AddressTextBox.BackColor = AppColors._defaultColor;
-                UpdateListBox();
-            }
-            catch
-            {
-                AddressTextBox.BackColor = AppColors._errorColor;
-            }
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _currentCustomer = new Customer("No Name", "No Address");
+            _currentCustomer = new Customer();
             _customers.Add(_currentCustomer);
             UpdateListBox();
         }

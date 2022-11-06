@@ -1,6 +1,6 @@
 ﻿using ObjectOrientedPractics.Services;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Classes
 {
     /// <summary>
     /// Хранит данные о покупателе.
@@ -8,7 +8,7 @@ namespace ObjectOrientedPractics.Model
     internal class Customer
     {
         /// <summary>
-        /// Персональный индетификатор покупателя.
+        /// Персональный идентификатор покупателя.
         /// </summary>
         private readonly int _id;
 
@@ -20,7 +20,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Адрес покупателя.
         /// </summary>
-        private string _address;
+        //private string _address;
 
         /// <summary>
         /// Максимальная длинна полного имени.
@@ -30,7 +30,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Максимальная длинна адреса
         /// </summary>
-        private const int AddressMaxLength = 500;
+        //private const int AddressMaxLength = 500;
 
         /// <summary>
         /// Получает ID покупателя.
@@ -44,7 +44,7 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Принимае и возворащает полное имя.
+        /// Принимает и возвращает полное имя.
         /// </summary>
         public string Fullname
         {
@@ -58,31 +58,45 @@ namespace ObjectOrientedPractics.Model
             }
         }
 
+        
+        //public string _Address
+        //{
+        //    get 
+        //    {
+        //        return _address; 
+        //    }
+        //    set 
+        //    {
+        //        _address = Validator.AssertStringMaxLength(value, "Address", AddressMaxLength);
+        //    }
+        //}
+
         /// <summary>
-        /// Принимае и возворащает Адрес.
+        /// Принимает и возвращает Адрес.
         /// </summary>
-        public string Address
-        {
-            get 
-            {
-                return _address; 
-            }
-            set 
-            {
-                _address = Validator.AssertStringMaxLength(value, "Address", AddressMaxLength);
-            }
-        }
+        public Address Address { get; set; }
 
         /// <summary>
         /// Создаёт экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">Полное имя покупателя.</param>
         /// <param name="address">Адрес покупателя.</param>
-        public Customer(string fullname, string address)
+        public Customer(string fullname, Address address)
         {
             _id = IDGenerator.GetNextID();
             Fullname = fullname;
             Address = address;
+        }
+
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Customer"/>
+        /// </summary>
+        public Customer()
+        {
+            _id = IDGenerator.GetNextID();
+            string defaultName = "No Name";
+            Fullname = defaultName;
+            Address = new Address();
         }
     }
 }

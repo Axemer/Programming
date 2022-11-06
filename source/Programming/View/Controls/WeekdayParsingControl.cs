@@ -29,7 +29,7 @@ namespace Programming.View.Controls
 
             else
             {
-                ParserLabel.Text = "\"This day doesnt exist\"";
+                ParserLabel.Text = "\"This day doesn't exist\"";
             }
         }
 

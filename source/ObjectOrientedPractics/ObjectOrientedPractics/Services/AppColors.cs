@@ -1,4 +1,4 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Services
 {
     /// <summary>
     /// Хранит ключевые цвета приложения.

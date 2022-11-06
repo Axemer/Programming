@@ -33,12 +33,10 @@
             this.SlectedLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.FullNameLable = new System.Windows.Forms.Label();
-            this.AdddressLabel = new System.Windows.Forms.Label();
             this.SelectedPanel = new System.Windows.Forms.Panel();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.FullnameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.Panel2 = new System.Windows.Forms.Panel();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.SelectedPanel.SuspendLayout();
@@ -93,43 +91,29 @@
             this.FullNameLable.TabIndex = 4;
             this.FullNameLable.Text = "Fullname:";
             // 
-            // AdddressLabel
-            // 
-            this.AdddressLabel.AutoSize = true;
-            this.AdddressLabel.Location = new System.Drawing.Point(3, 71);
-            this.AdddressLabel.Name = "AdddressLabel";
-            this.AdddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.AdddressLabel.TabIndex = 5;
-            this.AdddressLabel.Text = "Address:";
-            // 
             // SelectedPanel
             // 
             this.SelectedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SelectedPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SelectedPanel.Controls.Add(this.AddressTextBox);
+            this.SelectedPanel.Controls.Add(this.AddressControl);
             this.SelectedPanel.Controls.Add(this.FullnameTextBox);
             this.SelectedPanel.Controls.Add(this.IDTextBox);
             this.SelectedPanel.Controls.Add(this.FullNameLable);
             this.SelectedPanel.Controls.Add(this.SlectedLabel);
-            this.SelectedPanel.Controls.Add(this.AdddressLabel);
             this.SelectedPanel.Controls.Add(this.IDLabel);
             this.SelectedPanel.Location = new System.Drawing.Point(209, 3);
             this.SelectedPanel.Name = "SelectedPanel";
-            this.SelectedPanel.Size = new System.Drawing.Size(358, 137);
+            this.SelectedPanel.Size = new System.Drawing.Size(358, 381);
             this.SelectedPanel.TabIndex = 6;
             // 
-            // AddressTextBox
+            // AddressControl
             // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(61, 68);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(294, 66);
-            this.AddressTextBox.TabIndex = 8;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
+            this.AddressControl.Location = new System.Drawing.Point(6, 78);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(397, 157);
+            this.AddressControl.TabIndex = 8;
             // 
             // FullnameTextBox
             // 
@@ -147,19 +131,6 @@
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 6;
-            // 
-            // Panel2
-            // 
-            this.Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Panel2.Location = new System.Drawing.Point(209, 146);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(358, 238);
-            this.Panel2.TabIndex = 7;
             // 
             // AddButton
             // 
@@ -191,7 +162,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.Panel2);
             this.Controls.Add(this.SelectedPanel);
             this.Controls.Add(this.CustomersListBox);
             this.Controls.Add(this.CustomersLabel);
@@ -211,13 +181,11 @@
         private System.Windows.Forms.Label SlectedLabel;
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.Label FullNameLable;
-        private System.Windows.Forms.Label AdddressLabel;
         private System.Windows.Forms.Panel SelectedPanel;
-        private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.TextBox FullnameTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
-        private System.Windows.Forms.Panel Panel2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button RemoveButton;
+        private Controls.AddressControl AddressControl;
     }
 }

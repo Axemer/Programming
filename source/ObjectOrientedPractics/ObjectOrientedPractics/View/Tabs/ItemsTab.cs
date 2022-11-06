@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Classes;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View
 {
@@ -18,6 +19,11 @@ namespace ObjectOrientedPractics.View
         private Item _currentItem;
 
         /// <summary>
+        /// 
+        /// </summary>
+        
+
+        /// <summary>
         /// Обновляет информацию внутри ListBox.
         /// </summary>
         private void UpdateListBox()
@@ -30,7 +36,7 @@ namespace ObjectOrientedPractics.View
         }
 
         /// <summary>
-        /// Чистит все ткстбоксы и меняется цвет на цвет по умолчанию.
+        /// Чистит все текстбоксы и меняется цвет на цвет по умолчанию.
         /// </summary>
         private void ClearAllFields()
         {
@@ -38,6 +44,7 @@ namespace ObjectOrientedPractics.View
             DescriptionTextBox.Text = null;
             IDTextBox.Text = null;
             CostTextBox.Text = null;
+            CategoryComboBox.Text = null;
         }
 
         public ItemsTab()
@@ -45,6 +52,11 @@ namespace ObjectOrientedPractics.View
             InitializeComponent();
 
             _items = new List<Item>();
+            Array _category = Enum.GetValues(typeof(Category));
+            foreach (var value in _category)
+            {
+                CategoryComboBox.Items.Add(value);
+            }
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +68,7 @@ namespace ObjectOrientedPractics.View
                 NameTextBox.Text = _currentItem.Name;
                 DescriptionTextBox.Text = _currentItem.Info;
                 CostTextBox.Text = $"{_currentItem.Cost}";
+                CategoryComboBox.Text = $"{_currentItem.Category}";
             }
             else
                 ClearAllFields();
@@ -63,7 +76,7 @@ namespace ObjectOrientedPractics.View
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _currentItem = new Item("No name", "No info", 0.0);
+            _currentItem = new Item("No name", "No info", 0.0, 0);
             _items.Add(_currentItem);
             UpdateListBox();
         }
@@ -114,6 +127,19 @@ namespace ObjectOrientedPractics.View
             try
             {
                 _currentItem.Cost = double.Parse(CostTextBox.Text);
+                CostTextBox.BackColor = AppColors._defaultColor;
+            }
+            catch
+            {
+                CostTextBox.BackColor = AppColors._errorColor;
+            }
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentItem.Category = (Category) CategoryComboBox.SelectedIndex;
                 CostTextBox.BackColor = AppColors._defaultColor;
             }
             catch

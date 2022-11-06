@@ -1,6 +1,6 @@
 ﻿using ObjectOrientedPractics.Services;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Classes
 {
     /// <summary>
     /// Хранит данные о товаре и создает его экземпляр.
@@ -38,7 +38,7 @@ namespace ObjectOrientedPractics.Model
         private const int InfoMaxLenght = 1000;
 
         /// <summary>
-        /// Маесиммальная стоимость.
+        /// Максимальная стоимость.
         /// </summary>
         private const double MaxCost = 100000.0;
 
@@ -104,17 +104,24 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Gets and sets category of Item.
+        /// </summary>
+        public Category Category { get; set; }
+
+        /// <summary>
         /// Создаёт экземпляр класса <see cref="Item"/>
         /// </summary>
-        /// <param name="name">азвание товара. Предельная длина 200 символов.</param>
+        /// <param name="name">Название товара. Предельная длина 200 символов.</param>
         /// <param name="info">Описание товара. Предельная длина 1000 символов.</param>
         /// <param name="cost">Цена товара. Допустимо значение от 0 до 100000.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             _id = IDGenerator.GetNextID();
             Name = name;
             Info = info;
             Cost = cost;       
+            Category = category;
         }
     }
 }
