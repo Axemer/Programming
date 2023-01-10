@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
+using System.Collections.Generic;
 
 namespace ObjectOrientedPractics.Model.Classes
 {
@@ -49,6 +50,16 @@ namespace ObjectOrientedPractics.Model.Classes
         }
 
         /// <summary>
+        /// Возвращает корзину покупателя.
+        /// </summary>
+        public Cart Cart { get; }
+
+        /// <summary>
+        /// Возвращает список всех заказов покупателя.
+        /// </summary>
+        public List<Order> Orders { set; get; } = new List<Order>();
+
+        /// <summary>
         /// Принимает и возвращает Адрес.
         /// </summary>
         public Address Address { get; set; }
@@ -74,6 +85,7 @@ namespace ObjectOrientedPractics.Model.Classes
             string defaultName = "No Name";
             Fullname = defaultName;
             Address = new Address();
+            Cart = new Cart();
         }
     }
 }

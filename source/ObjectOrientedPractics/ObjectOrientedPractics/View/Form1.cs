@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Model.Classes;
+using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics
 {
@@ -24,5 +25,6 @@ namespace ObjectOrientedPractics
             customersTab.Customers = _store.Customers;
             /// Крч тут надо сделать так чтоб списки передовались из стора но оно не работает
         }
+        
     }
 }
