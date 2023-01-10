@@ -1,24 +1,21 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Model.Classes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ObjectOrientedPractics.Model.Classes
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Хранит данные всех товаров и покупателей.
+    /// Представляет объект - магазин, который хранит в себе списки <see cref="Item"/> и <see cref="Customer"/>.
     /// </summary>
     internal class Store
     {
         /// <summary>
-        /// Список покупателей.
+        /// Возвращает или задает список объектов типа <see cref="Item"/>
         /// </summary>
-        private List<Customer> _customers;
+        public List<Item> Items { get; set; } = new List<Item>();
 
         /// <summary>
-        /// Список всех предметов.
+        /// Возвращает или задает список объектов типа <see cref="Customer"/>.
         /// </summary>
-        private List<Item> _items;
+        public List<Customer> Customers { get; set; } = new List<Customer>();
     }
 }

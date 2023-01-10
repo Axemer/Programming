@@ -19,6 +19,22 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Customer _currentCustomer;
 
+        // Модификатор internal по тому что без него компилятор ругается.
+        /// <summary>
+        /// Возвращает и задаёт список Покупателей.
+        /// </summary>
+        internal List<Customer> Customers
+        {
+            get
+            {
+                return _customers;
+            }
+            set
+            {
+                _customers = value;
+            }
+        }
+
         /// <summary>
         /// Обновляет информацию внутри ListBox.
         /// </summary>
@@ -47,7 +63,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
 
-            _customers = new List<Customer>();
+            //_customers = new List<Customer>();
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,15 +86,20 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void FullnameTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (CustomersListBox.SelectedIndex >= 0)
             {
-                _currentCustomer.Fullname = FullnameTextBox.Text;
-                FullnameTextBox.BackColor = AppColors._defaultColor;
-                UpdateListBox();
-            }
-            catch
-            {
-                FullnameTextBox.BackColor = AppColors._errorColor;
+                int currentIndex = CustomersListBox.SelectedIndex;
+                try
+                {
+                    _currentCustomer.Fullname = FullnameTextBox.Text;
+                    FullnameTextBox.BackColor = AppColors._defaultColor;
+                    UpdateListBox();
+                    CustomersListBox.SelectedIndex = currentIndex;
+                }
+                catch
+                {
+                    FullnameTextBox.BackColor = AppColors._errorColor;
+                }
             }
         }
 

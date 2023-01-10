@@ -18,19 +18,9 @@ namespace ObjectOrientedPractics.Model.Classes
         private string _fullname;
 
         /// <summary>
-        /// Адрес покупателя.
-        /// </summary>
-        //private string _address;
-
-        /// <summary>
         /// Максимальная длинна полного имени.
         /// </summary>
         private const int NameMaxLength = 200;
-
-        /// <summary>
-        /// Максимальная длинна адреса
-        /// </summary>
-        //private const int AddressMaxLength = 500;
 
         /// <summary>
         /// Получает ID покупателя.
@@ -57,19 +47,6 @@ namespace ObjectOrientedPractics.Model.Classes
                 _fullname = Validator.AssertStringMaxLength(value, "Fullname", NameMaxLength);
             }
         }
-
-        
-        //public string _Address
-        //{
-        //    get 
-        //    {
-        //        return _address; 
-        //    }
-        //    set 
-        //    {
-        //        _address = Validator.AssertStringMaxLength(value, "Address", AddressMaxLength);
-        //    }
-        //}
 
         /// <summary>
         /// Принимает и возвращает Адрес.

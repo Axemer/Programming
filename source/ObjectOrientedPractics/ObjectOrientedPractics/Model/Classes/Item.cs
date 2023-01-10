@@ -48,6 +48,11 @@ namespace ObjectOrientedPractics.Model.Classes
         private const double MinCost = 0.0;
 
         /// <summary>
+        /// Gets and sets category of Item.
+        /// </summary>
+        public Category Category { get; set; }
+
+        /// <summary>
         /// Получает id товара.
         /// </summary>
         public int ID
@@ -102,11 +107,6 @@ namespace ObjectOrientedPractics.Model.Classes
                 _cost = Validator.AssertValueInRange("Cost", value, MinCost, MaxCost);
             }
         }
-
-        /// <summary>
-        /// Gets and sets category of Item.
-        /// </summary>
-        public Category Category { get; set; }
 
         /// <summary>
         /// Создаёт экземпляр класса <see cref="Item"/>

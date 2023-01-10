@@ -7,14 +7,13 @@
     {
         Processors,
         Motherboards,
-        Video_cards,
+        GPU,
         RAM,
-        Power_supplies,
-        Enclosures,
+        PSU,
+        Cases,
         Cooling,
         SSD,
         HDD,            
         Accessories,
-        Crypto_Wallets,
     }
 }

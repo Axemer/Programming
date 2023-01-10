@@ -14,14 +14,25 @@ namespace ObjectOrientedPractics.View
         private List<Item> _items;
 
         /// <summary>
-        /// Выбраный предмет.
+        /// Выбранный предмет.
         /// </summary>
         private Item _currentItem;
 
+        // Модификатор internal по тому что без него компилятор ругается.
         /// <summary>
-        /// 
+        /// Возвращает и задаёт список предметов.
         /// </summary>
-        
+        internal List<Item> Items
+        {
+            get 
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+            }
+        }
 
         /// <summary>
         /// Обновляет информацию внутри ListBox.
@@ -36,7 +47,7 @@ namespace ObjectOrientedPractics.View
         }
 
         /// <summary>
-        /// Чистит все текстбоксы и меняется цвет на цвет по умолчанию.
+        /// Чистит все текст боксы и меняется цвет на цвет по умолчанию.
         /// </summary>
         private void ClearAllFields()
         {
@@ -51,7 +62,7 @@ namespace ObjectOrientedPractics.View
         {
             InitializeComponent();
 
-            _items = new List<Item>();
+            //_items = new List<Item>();
             Array _category = Enum.GetValues(typeof(Category));
             foreach (var value in _category)
             {
@@ -71,7 +82,10 @@ namespace ObjectOrientedPractics.View
                 CategoryComboBox.Text = $"{_currentItem.Category}";
             }
             else
+            {
+                _currentItem = null;
                 ClearAllFields();
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -97,55 +111,70 @@ namespace ObjectOrientedPractics.View
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (ItemsListBox.SelectedIndex >= 0)
             {
-                _currentItem.Name = NameTextBox.Text;
-                NameTextBox.BackColor = AppColors._defaultColor;
-                UpdateListBox();
-            }
-            catch
-            {
-                NameTextBox.BackColor = AppColors._errorColor;
+                int currentIndex = ItemsListBox.SelectedIndex;
+
+                try
+                {
+                    _currentItem.Name = NameTextBox.Text;
+                    NameTextBox.BackColor = AppColors._defaultColor;
+                    UpdateListBox();
+                    ItemsListBox.SelectedIndex = currentIndex;
+                }
+                catch
+                {
+                    NameTextBox.BackColor = AppColors._errorColor;
+                }
             }
         }
 
         private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (ItemsListBox.SelectedIndex >= 0) 
             {
-                _currentItem.Info = DescriptionTextBox.Text;
-                DescriptionTextBox.BackColor = AppColors._defaultColor;
-            }
-            catch
-            {
-                DescriptionTextBox.BackColor = AppColors._errorColor;
+                try
+                {
+                    _currentItem.Info = DescriptionTextBox.Text;
+                    DescriptionTextBox.BackColor = AppColors._defaultColor;
+                }
+                catch
+                {
+                    DescriptionTextBox.BackColor = AppColors._errorColor;
+                }
             }
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (ItemsListBox.SelectedIndex >= 0) 
             {
-                _currentItem.Cost = double.Parse(CostTextBox.Text);
-                CostTextBox.BackColor = AppColors._defaultColor;
-            }
-            catch
-            {
-                CostTextBox.BackColor = AppColors._errorColor;
+                try
+                {
+                    _currentItem.Cost = double.Parse(CostTextBox.Text);
+                    CostTextBox.BackColor = AppColors._defaultColor;
+                }
+                catch
+                {
+                    CostTextBox.BackColor = AppColors._errorColor;
+                }
             }
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (ItemsListBox.SelectedIndex >= 0) 
             {
-                _currentItem.Category = (Category) CategoryComboBox.SelectedIndex;
-                CostTextBox.BackColor = AppColors._defaultColor;
-            }
-            catch
-            {
-                CostTextBox.BackColor = AppColors._errorColor;
-            }
+                try
+                {
+                    _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
+                    CostTextBox.BackColor = AppColors._defaultColor;
+                }
+                catch
+                {
+                    CostTextBox.BackColor = AppColors._errorColor;
+                }
+            }            
         }
     }
 }
