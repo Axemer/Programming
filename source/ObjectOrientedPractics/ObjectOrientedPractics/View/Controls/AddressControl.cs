@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model.Classes;
 using ObjectOrientedPractics.Services;
+using static System.String;
 
 namespace ObjectOrientedPractics.View.Controls
 {
@@ -16,16 +17,64 @@ namespace ObjectOrientedPractics.View.Controls
     {
         public Address _address;
 
+        /// <summary>
+        /// Очищает поля в <see cref="AddressControl"/>.
+        /// </summary>
+        public void Clear()
+        {
+            IndexTextBox.Clear();
+            IndexTextBox.BackColor= Color.White;
+            CountryTextBox.Clear();
+            CityTextBox.Clear();
+            StreetTextBox.Clear();
+            ApartmentTextBox.Clear();
+            BuildingTextBox.Clear();
+        }
+
+        /// <summary>
+        /// Обновляет поля в <see cref="AddressControl"/>.
+        /// </summary>
+        private void UpdateFields()
+        {
+            if (_address == null)
+            {
+                Clear();
+                return;
+            }
+
+            ApartmentTextBox.Text = _address.Apartment;
+            BuildingTextBox.Text = _address.Building;
+            CityTextBox.Text = _address.City;
+            CountryTextBox.Text = _address.Country;
+            StreetTextBox.Text = _address.Street;
+            IndexTextBox.Text = _address.Index.ToString();
+        }
+
         public AddressControl()
         {
             InitializeComponent();
+        }
+
+        public Address Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                _address = value;
+                UpdateFields();
+            }
         }
 
         private void IndexTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
+                if (IsNullOrWhiteSpace(BuildingTextBox.Text)) return;
                 _address.Index = int.Parse(IndexTextBox.Text);
+                
                 IndexTextBox.BackColor = AppColors._defaultColor;
             }
             catch
@@ -38,6 +87,7 @@ namespace ObjectOrientedPractics.View.Controls
         {
             try
             {
+                if (IsNullOrWhiteSpace(CountryTextBox.Text)) return;
                 _address.Country = CountryTextBox.Text;
                 CountryTextBox.BackColor = AppColors._defaultColor;
             }
@@ -50,7 +100,8 @@ namespace ObjectOrientedPractics.View.Controls
         private void CityTextBox_TextChanged(object sender, EventArgs e)
         {
             try
-            {
+            { 
+                if (IsNullOrWhiteSpace(CityTextBox.Text)) return;
                 _address.City = CityTextBox.Text;
                 CityTextBox.BackColor = AppColors._defaultColor;
             }
@@ -64,6 +115,7 @@ namespace ObjectOrientedPractics.View.Controls
         {
             try
             {
+                if (IsNullOrWhiteSpace(StreetTextBox.Text)) return;
                 _address.Street = StreetTextBox.Text;
                 StreetTextBox.BackColor = AppColors._defaultColor;
             }
@@ -77,6 +129,7 @@ namespace ObjectOrientedPractics.View.Controls
         {
             try
             {
+                if (IsNullOrWhiteSpace(CityTextBox.Text)) return;
                 _address.Apartment = ApartmentTextBox.Text;
                 ApartmentTextBox.BackColor = AppColors._defaultColor;
             }
@@ -90,6 +143,7 @@ namespace ObjectOrientedPractics.View.Controls
         {
             try
             {
+                if (IsNullOrWhiteSpace(BuildingTextBox.Text)) return;
                 _address.Building = BuildingTextBox.Text;
                 BuildingTextBox.BackColor = AppColors._defaultColor;
             }

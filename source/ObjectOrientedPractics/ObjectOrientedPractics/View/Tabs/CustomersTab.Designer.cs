@@ -39,6 +39,7 @@
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.SelectedPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SelectedPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SelectedPanel.Controls.Add(this.IsPriorityCheckBox);
             this.SelectedPanel.Controls.Add(this.AddressControl);
             this.SelectedPanel.Controls.Add(this.FullnameTextBox);
             this.SelectedPanel.Controls.Add(this.IDTextBox);
@@ -110,6 +112,7 @@
             // 
             // AddressControl
             // 
+            this.AddressControl.Address = null;
             this.AddressControl.Location = new System.Drawing.Point(6, 78);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(397, 157);
@@ -154,6 +157,18 @@
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Enabled = false;
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(199, 18);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.IsPriorityCheckBox.TabIndex = 9;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +202,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button RemoveButton;
         private Controls.AddressControl AddressControl;
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
     }
 }

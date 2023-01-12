@@ -16,7 +16,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
         internal List<Item> Items
         {
-            get => _items;
+            get
+            {
+                return _items;
+            }
             set
             {
                 _items = value;
@@ -26,7 +29,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
         internal List<Customer> Customers
         {
-            get => _customers;
+            get
+            {
+                return _customers;
+            }
             set
             {
                 _customers = value;
@@ -55,7 +61,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateCustomersComboBox()
         {
-            if (_customers == null) return;
+            if (_customers == null) 
+                return;
             CustomersComboBox.Items.Clear();
             foreach (var customer in _customers)
             {
@@ -68,7 +75,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateItemsListBox()
         {
-            if (_items == null) return;
+            if (_items == null) 
+                return;
             ItemsListBox.Items.Clear();
             foreach (var item in Items)
             {
@@ -81,7 +89,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateCartListBox()
         {
-            if (_currentCustomer == null) return;
+            if (_currentCustomer == null) 
+                return;
             CartListBox.Items.Clear();
             foreach (var item in _currentCustomer.Cart.Items)
             {
@@ -107,7 +116,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private void AddToCartButton_Click(object sender, EventArgs e)
         {
             var item = (Item)ItemsListBox.SelectedItem;
-            if (_currentCustomer == null || item == null) return;
+            if (_currentCustomer == null || item == null) 
+                return;
             _currentCustomer.Cart.Items.Add(item);
             UpdateCartListBox();
         }
@@ -115,14 +125,16 @@ namespace ObjectOrientedPractics.View.Tabs
         private void RemoveItemButton_Click(object sender, EventArgs e)
         {
             var item = (Item)CartListBox.SelectedItem;
-            if (_currentCustomer == null || item == null) return;
+            if (_currentCustomer == null || item == null) 
+                return;
             _currentCustomer.Cart.Items.Remove(item);
             UpdateCartListBox();
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer == null) return;
+            if (_currentCustomer == null) 
+                return;
             var items = _currentCustomer.Cart.Items;
             if (items.Count == 0)
             {
@@ -130,7 +142,21 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
-            var order = new Order();
+            var order = _currentCustomer.IsPriority ? new PriorityOrder() : new Order(); /// было тут ранее сахар но палевно
+            
+            ////Order order; // замена сахара выше может и не работать
+
+            //if (_currentCustomer.IsPriority)
+            //{
+            //    var priorityOrder = new PriorityOrder();
+            //}
+            //else
+            //{
+            //    var usualOrder = new Order();
+            //}
+
+            //var order = 
+
             foreach (var item in items)
             {
                 order.Items.Add(item);
@@ -146,7 +172,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ClearCartButton_Click(object sender, EventArgs e)
         {
-            if (_currentCustomer == null) return;
+            if (_currentCustomer == null) 
+                return;
             var items = _currentCustomer.Cart.Items;
             items.Clear();
             CartListBox.Items.Clear();

@@ -109,6 +109,17 @@ namespace ObjectOrientedPractics.Model.Classes
         }
 
         /// <summary>
+        /// Отображает правильные называния в списках.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.IsNullOrWhiteSpace(Name)
+                ? $"{nameof(Item)}-{ID + 1}"
+                : Name;
+        }
+
+        /// <summary>
         /// Создаёт экземпляр класса <see cref="Item"/>
         /// </summary>
         /// <param name="name">Название товара. Предельная длина 200 символов.</param>

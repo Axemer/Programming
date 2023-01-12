@@ -65,6 +65,20 @@ namespace ObjectOrientedPractics.Model.Classes
         public Address Address { get; set; }
 
         /// <summary>
+        /// Отвечает за наличие приоритета
+        /// </summary>
+        public bool IsPriority { set; get; } = false;
+
+        /// <summary>
+        /// Отображает правильные называния в списках.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Fullname;
+        }
+
+        /// <summary>
         /// Создаёт экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">Полное имя покупателя.</param>

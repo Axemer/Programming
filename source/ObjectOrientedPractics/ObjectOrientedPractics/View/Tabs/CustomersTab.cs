@@ -55,15 +55,17 @@ namespace ObjectOrientedPractics.View.Tabs
             FullnameTextBox.Text = null;
             IDTextBox.Text = null;
             AddressControl._address = null;
+            IsPriorityCheckBox.Checked = false;
+            IsPriorityCheckBox.Enabled = false;
 
             FullnameTextBox.BackColor = AppColors._defaultColor;
         }
 
+
+
         public CustomersTab()
         {
             InitializeComponent();
-
-            //_customers = new List<Customer>();
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +83,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 AddressControl.StreetTextBox.Text = _currentCustomer.Address.Street;
                 AddressControl.BuildingTextBox.Text = _currentCustomer.Address.Building;
                 AddressControl.ApartmentTextBox.Text = _currentCustomer.Address.Apartment;
+                IsPriorityCheckBox.Enabled = true;
+                IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
+
             }
         }
 
@@ -121,6 +126,18 @@ namespace ObjectOrientedPractics.View.Tabs
             else
             {
                 UpdateListBox();
+            }
+        }
+
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
     }

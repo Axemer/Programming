@@ -155,12 +155,21 @@ namespace ObjectOrientedPractics.Model.Classes
         /// </summary>
         public Address() 
         {
-            Index = 0;
+            
             Country = "";
             City = "";
             Street = "";
             Building = "";
             Apartment = "";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Join(", ", Index.ToString(), Country, City, Street, Building, Apartment);
         }
     }
 }
