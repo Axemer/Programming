@@ -30,6 +30,7 @@ namespace ObjectOrientedPractics
             cartsTab.Items = _store.Items;
 
             ordersTab.Customers = _store.Customers;
+            priorityOrderTab.Items = _store.Items;
 
         }
 
@@ -43,6 +44,7 @@ namespace ObjectOrientedPractics
                 case 3:
                     ordersTab.RefreshData();
                     break;
+                
             } 
         }
     }
