@@ -42,6 +42,16 @@ namespace ObjectOrientedPractics.Model.Classes
         public Dictionary<DateTime, OrderStatus> History { get; } = new Dictionary<DateTime, OrderStatus>();
 
         /// <summary>
+        /// Возвращает или задает размер скидки.
+        /// </summary>
+        public double DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Общая стоимость с учетом скидки. 
+        /// </summary>
+        public double TotalAmount => Amount - DiscountAmount;
+
+        /// <summary>
         /// Возвращает общую стоимость всех товаров в заказе.
         /// </summary>
         public double Amount

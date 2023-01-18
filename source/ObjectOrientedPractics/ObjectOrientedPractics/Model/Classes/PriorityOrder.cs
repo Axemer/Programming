@@ -60,7 +60,7 @@ namespace ObjectOrientedPractics.Model.Classes
                     return DeliveryTimeIntervals.Find(interval => interval.Value.Equals(value));
                 }
 
-                throw new ArgumentException("Argument not valid!");
+                throw new ArgumentException("Argument invalid!");
             }
         }
     }

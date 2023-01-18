@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model.Classes;
 
@@ -100,6 +101,54 @@ namespace ObjectOrientedPractics.View.Tabs
             AmountValueLabel.Text = _currentCustomer.Cart.Amount.ToString(CultureInfo.CurrentCulture);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CalculateDiscounts()
+        {
+            var cartItems = _currentCustomer.Cart.Items;
+            var sum = cartItems.Sum(item => item.Cost);
+            var discountSum = _currentCustomer.Discounts.Where(discount => discount.Active)
+                .Sum(discount => discount.Calculate(cartItems));
+            var totalSum = sum - discountSum;
+            DiscountValueLabel.Text = discountSum.ToString(CultureInfo.InvariantCulture);
+            TotalValuelabel.Text = totalSum.ToString(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="order"></param>
+        private void UpdateDiscounts(Order order)
+        {
+            var orderItems = order.Items;
+            _currentCustomer.Discounts.ForEach(discount => discount.Update(orderItems));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="order"></param>
+        private void ApplyDiscounts(Order order)
+        {
+            var orderItems = order.Items;
+            var sum = _currentCustomer.Discounts.Where(discount => discount.Active)
+                .Sum(discount => discount.Apply(orderItems));
+            order.DiscountAmount = sum;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateDiscountsCheckedListBox()
+        {
+            DiscountsCheckedListBox.Items.Clear();
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                DiscountsCheckedListBox.Items.Add(discount, discount.Active);
+            }
+        }
+
         private void CustomersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var customer = (Customer)CustomersComboBox.SelectedItem;
@@ -111,6 +160,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _currentCustomer = customer;
             UpdateCartListBox();
+            CalculateDiscounts();
+            UpdateDiscountsCheckedListBox();
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -120,6 +171,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             _currentCustomer.Cart.Items.Add(item);
             UpdateCartListBox();
+            CalculateDiscounts();
         }
 
         private void RemoveItemButton_Click(object sender, EventArgs e)
@@ -129,6 +181,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             _currentCustomer.Cart.Items.Remove(item);
             UpdateCartListBox();
+            CalculateDiscounts();
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
@@ -142,32 +195,23 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
-            var order = _currentCustomer.IsPriority ? new PriorityOrder() : new Order(); /// было тут ранее сахар но палевно
+            var order = _currentCustomer.IsPriority ? new PriorityOrder() : new Order(); 
             
-            ////Order order; // замена сахара выше может и не работать
-
-            //if (_currentCustomer.IsPriority)
-            //{
-            //    var priorityOrder = new PriorityOrder();
-            //}
-            //else
-            //{
-            //    var usualOrder = new Order();
-            //}
-
-            //var order = 
-
             foreach (var item in items)
             {
                 order.Items.Add(item);
             }
 
+            ApplyDiscounts(order);
+            UpdateDiscounts(order);
             order.DeliveryAddress = _currentCustomer.Address;
             order.History.Add(DateTime.Now, order.Status);
             _currentCustomer.Orders.Add(order);
             items.Clear();
             CartListBox.Items.Clear();
             AmountValueLabel.Text = @"0";
+            TotalValuelabel.Text = @"0";
+            UpdateDiscountsCheckedListBox();
         }
 
         private void ClearCartButton_Click(object sender, EventArgs e)
@@ -178,6 +222,13 @@ namespace ObjectOrientedPractics.View.Tabs
             items.Clear();
             CartListBox.Items.Clear();
             AmountValueLabel.Text = @"0";
+        }
+
+        private void DiscountsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (!(DiscountsCheckedListBox.Items[e.Index] is IDiscount discount)) return;
+            discount.Active = e.NewValue == CheckState.Checked;
+            CalculateDiscounts();
         }
     }
 }

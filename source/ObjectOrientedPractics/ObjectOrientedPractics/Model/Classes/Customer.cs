@@ -70,6 +70,11 @@ namespace ObjectOrientedPractics.Model.Classes
         public bool IsPriority { set; get; } = false;
 
         /// <summary>
+        /// Хранит информацию о скидках
+        /// </summary>
+        public List<IDiscount> Discounts { get; } = new List<IDiscount>();
+
+        /// <summary>
         /// Отображает правильные называния в списках.
         /// </summary>
         /// <returns></returns>

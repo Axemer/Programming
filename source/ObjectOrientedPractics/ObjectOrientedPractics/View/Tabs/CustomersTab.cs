@@ -57,8 +57,32 @@ namespace ObjectOrientedPractics.View.Tabs
             AddressControl._address = null;
             IsPriorityCheckBox.Checked = false;
             IsPriorityCheckBox.Enabled = false;
+            DiscountsRemoveButton.Enabled = false;
+            DiscountsAddButton.Enabled = false;
 
             FullnameTextBox.BackColor = AppColors._defaultColor;
+        }
+
+        private void UpdateAllFields()
+        {
+            IDTextBox.Text = $"{_currentCustomer.ID}";
+            FullnameTextBox.Text = _currentCustomer.Fullname;
+
+            AddressControl._address = _currentCustomer.Address;
+            AddressControl.IndexTextBox.Text = _currentCustomer.Address.Index.ToString();
+            AddressControl.CountryTextBox.Text = _currentCustomer.Address.Country;
+            AddressControl.CityTextBox.Text = _currentCustomer.Address.City;
+            AddressControl.StreetTextBox.Text = _currentCustomer.Address.Street;
+            AddressControl.BuildingTextBox.Text = _currentCustomer.Address.Building;
+            AddressControl.ApartmentTextBox.Text = _currentCustomer.Address.Apartment;
+            IsPriorityCheckBox.Enabled = true;
+            IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
+            DiscountsListBox.Items.Clear();
+            DiscountsAddButton.Enabled = true;
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                DiscountsListBox.Items.Add(discount);
+            }
         }
 
 
@@ -73,19 +97,8 @@ namespace ObjectOrientedPractics.View.Tabs
             if (CustomersListBox.SelectedIndex >= 0)
             {
                 _currentCustomer = _customers[CustomersListBox.SelectedIndex];
-                IDTextBox.Text = $"{_currentCustomer.ID}";
-                FullnameTextBox.Text = _currentCustomer.Fullname;
-
-                AddressControl._address = _currentCustomer.Address;
-                AddressControl.IndexTextBox.Text = _currentCustomer.Address.Index.ToString();
-                AddressControl.CountryTextBox.Text = _currentCustomer.Address.Country;
-                AddressControl.CityTextBox.Text = _currentCustomer.Address.City;
-                AddressControl.StreetTextBox.Text = _currentCustomer.Address.Street;
-                AddressControl.BuildingTextBox.Text = _currentCustomer.Address.Building;
-                AddressControl.ApartmentTextBox.Text = _currentCustomer.Address.Apartment;
-                IsPriorityCheckBox.Enabled = true;
-                IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
-
+                
+                UpdateAllFields();
             }
         }
 
@@ -139,6 +152,31 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 Console.WriteLine(exception);
             }
+        }
+
+        private void DiscountsAddButton_Click(object sender, EventArgs e)
+        {
+            var form = new AddDiscountForm();
+            if (form.ShowDialog() != DialogResult.OK) return;
+            var discount = form.PercentDiscount;
+            _currentCustomer.Discounts.Add(discount);
+            DiscountsListBox.Items.Add(discount);
+        }
+
+        private void DiscountsRemoveButton_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex >= 0)
+            {
+                _currentCustomer.Discounts.RemoveAt(DiscountsListBox.SelectedIndex);
+                ClearAllFields();
+            }
+            else
+                UpdateAllFields();
+        }
+
+        private void DiscountsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DiscountsRemoveButton.Enabled = !(DiscountsListBox.SelectedItem is PointsDiscount);
         }
     }
 }
