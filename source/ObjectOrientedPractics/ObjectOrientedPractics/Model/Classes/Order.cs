@@ -14,7 +14,7 @@ namespace ObjectOrientedPractics.Model.Classes
         /// <summary>
         /// Возвращает идентификатор заказа.
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; }
 
         /// <summary>
         /// Возвращает дату создания заказа.
