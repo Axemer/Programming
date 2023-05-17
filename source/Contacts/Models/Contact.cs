@@ -1,7 +1,7 @@
 ﻿namespace Contacts.Models;
 
 /// <summary>
-/// Представляет контакт.
+/// Представляет объект - контакт.
 /// </summary>
 public class Contact
 {
@@ -11,12 +11,12 @@ public class Contact
     public string Name { get; set; } = "";
 
     /// <summary>
-    /// Возвращает или задает значение номер телефона.
+    /// Возвращает или задает значение номера.
     /// </summary>
     public string PhoneNumber { get; set; } = "";
 
     /// <summary>
-    /// Возвращает или задает значение адрес электронной почты.
+    /// Возвращает или задает значение адреса электронной почты.
     /// </summary>
     public string Email { get; set; } = "";
 }
